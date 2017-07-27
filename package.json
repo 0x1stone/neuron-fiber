@@ -1,0 +1,19 @@
+{
+  "name": "neural",
+  "version": "1.0.0",
+  "description": "",
+  "main": "neural.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rainlst/neural-network.git"
+  },
+  "author": "stone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rainlst/neural-network/issues"
+  },
+  "homepage": "https://github.com/rainlst/neural-network#readme"
+}
