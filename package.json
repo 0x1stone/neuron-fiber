@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rainlst/neural-network/issues"
   },
-  "homepage": "https://github.com/rainlst/neural-network#readme"
+  "homepage": "https://github.com/rainlst/neural-network#readme",
+  "dependencies": {
+    "numeric": "^1.2.6"
+  }
 }
