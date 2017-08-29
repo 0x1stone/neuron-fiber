@@ -1,6 +1,6 @@
 const numeric = require('numeric')
 
-class Perceptron {
+module.exports = class Perceptron {
 
   constructor(x, y, iteration) {
     // rate 学习率
@@ -42,7 +42,7 @@ class Perceptron {
       // 学习率 derivSigmoid() 来构建,代表sigmoid的倒数，即斜率
 
       this.resultY = this.sigmoid(numeric.dot(this.x, this.w))  // Y'
-      const deltaY = numeric.sub(y, this.resultY)  // (Y-Y')
+      const deltaY = numeric.sub(this.y, this.resultY)  // (Y-Y')
       const deltaW = numeric.dot(
         numeric.transpose(this.x),
         numeric.mul(this.derivSigmoid(this.resultY), deltaY)
@@ -55,18 +55,4 @@ class Perceptron {
   }
 }
 
-var x = [
-  [0, 0, 1],
-  [0, 1, 1],
-  [1, 0, 1],
-  [1, 1, 1]
-]
 
-var y = [
-  [0],
-  [0],
-  [1],
-  [1]
-]
-
-new Perceptron(x, y, 1000)
