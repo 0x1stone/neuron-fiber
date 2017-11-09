@@ -3,10 +3,9 @@ const numeric = require('numeric')
 module.exports = class Perceptron {
 
   constructor(x, y, iteration) {
-    // rate 学习率
+    // n 学习率
     // iteration 训练次数
     // w 权重向量
-    // errors 出错次数
     this.x = x
     this.y = y
     this.resultY
@@ -18,7 +17,7 @@ module.exports = class Perceptron {
   }
 
   initWeight () {
-    this.w = numeric.sub(numeric.mul(2, numeric.random([3, 1])), 1)
+    this.w = numeric.sub(numeric.mul(2, numeric.random([this.x[0].length, 1])), 1)
   }
 
   predict (x) {
@@ -37,16 +36,16 @@ module.exports = class Perceptron {
     for (let i = 1; i <= this.iteration; i++) {
       // 权重更新算法
       // W(j)=W(j)+delta W(j)
-      // delata W(j)= 学习率n * (Y-Y')* .X(j)
+      // delata W(j)= X(j) .* (Y-Y') * 学习率n
 
-      // 学习率 derivSigmoid() 来构建,代表sigmoid的倒数，即斜率
+      // 学习率 derivSigmoid() 来构建,代表 sigmoid 的导数，即斜率
 
       this.resultY = this.sigmoid(numeric.dot(this.x, this.w))  // Y'
       const deltaY = numeric.sub(this.y, this.resultY)  // (Y-Y')
       const deltaW = numeric.dot(
         numeric.transpose(this.x),
         numeric.mul(this.derivSigmoid(this.resultY), deltaY)
-      ) // n * (Y-Y') .* X(j)
+      ) // X(j) .* (Y-Y') * 学习率n
 
       this.w = numeric.add(this.w, deltaW) // W(j)=W(j)+delta W(j)
     }
