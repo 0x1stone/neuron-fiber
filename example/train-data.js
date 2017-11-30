@@ -1,10 +1,10 @@
 
-var Perceptron = require('../index.js')
+const Perceptron = require('../index.js')
 
 /**
  * input
  */
-var x = [
+const x = [
   [0, 0, 1, 0],
   [0, 1, 1, 0],
   [1, 0, 1, 0],
@@ -14,7 +14,7 @@ var x = [
 /**
  * output
  */
-var y = [
+const y = [
   [0],
   [0],
   [1],
