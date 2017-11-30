@@ -56,9 +56,6 @@ const times = 1000
 const data=[[1, 1, 1, 1]]
 
 
-
-const neuron = new Perceptron(x, y, 1000)
-
 /**
  * begin to train 1000 times
  */
