@@ -1,6 +1,9 @@
 
-var Perceptron = require('./src/neural-core.js')
+var Perceptron = require('../index.js')
 
+/**
+ * input
+ */
 var x = [
   [0, 0, 1, 0],
   [0, 1, 1, 0],
@@ -8,6 +11,9 @@ var x = [
   [1, 1, 1, 0]
 ]
 
+/**
+ * output
+ */
 var y = [
   [0],
   [0],
