@@ -32,5 +32,8 @@ const times = 1000
 const data=[[1, 1, 1, 1]]
 
 const neuron = new Perceptron(x, y, times)
+console.log(neuron.w)
+console.log(neuron.resultY)
+
 const result = neuron.predict(data)
 console.log(result)

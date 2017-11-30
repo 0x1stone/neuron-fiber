@@ -51,7 +51,5 @@ module.exports = class Perceptron {
 
       this.w = numeric.add(this.w, deltaW) // W(j)=W(j)+delta W(j)
     }
-    console.log(this.w)
-    console.log(this.resultY)
   }
 }
