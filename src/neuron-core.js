@@ -22,7 +22,9 @@ module.exports = class Perceptron {
     )
   }
 
-  predict(x) {}
+  predict(x) {
+    return this.sigmoid(numeric.dot(x, this.w))
+  }
 
   sigmoid(x) {
     return numeric.div(1, numeric.add(1, numeric.exp(numeric.neg(x))))
@@ -40,7 +42,7 @@ module.exports = class Perceptron {
 
       // 学习率 derivSigmoid() 来构建,代表 sigmoid 的导数，即斜率
 
-      this.resultY = this.sigmoid(numeric.dot(this.x, this.w)) // Y'= w.x
+      this.resultY = this.predict(this.x) // Y'= w.x
       const deltaY = numeric.sub(this.y, this.resultY) // (Y-Y')
       const deltaW = numeric.dot(
         numeric.transpose(this.x),

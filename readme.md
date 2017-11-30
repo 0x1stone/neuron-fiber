@@ -23,7 +23,6 @@ $ npm install neuron-fiber --save
 ## Usage
 
 ```es6
-
 const Perceptron = require('neuron-fiber')
 /**
  * input
@@ -45,16 +44,37 @@ const y = [
   [1]
 ]
 
-new Perceptron(x, y, 1000)
+/**
+ * training times
+ */
+const times = 1000
+
+
+/**
+ * data ready to predict result
+ */
+const data=[[1, 1, 1, 1]]
+
+
+
+const neuron = new Perceptron(x, y, 1000)
+
+/**
+ * begin to train 1000 times
+ */
+const neuron = new Perceptron(x, y, times)
+
+
+/**
+ * result is predicted
+ */
+const result = neuron.predict(data)
+
 
 ```
 
-
 ## Algorithm
 
-* 权重更新算法  W(j)=W(j)+delta W(j)
-* delata W(j)= 学习率n * (Y-Y')* .X(j)
-* 学习率 由derivSigmoid() 来构建, 为sigmoid的倒数，即斜率
-
-
-
+* 权重更新算法 W(j)=W(j)+delta W(j)
+* delata W(j)= 学习率 n _ (Y-Y')_ .X(j)
+* 学习率 由 derivSigmoid() 来构建 , 为 sigmoid 的倒数，即斜率
