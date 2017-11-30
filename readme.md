@@ -17,14 +17,14 @@ Follow these steps:
 ## Install
 
 ```
-$ npm install bricks.js --save
+$ npm install neuron-fiber --save
 ```
 
 ## Usage
 
 ```es6
 
-const Perceptron = require('../index.js')
+const Perceptron = require('neuron-fiber')
 /**
  * input
  */
