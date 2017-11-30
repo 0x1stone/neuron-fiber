@@ -4,7 +4,7 @@
   "description": "",
   "main": "neural.js",
   "scripts": {
-    "test": "./src/neural-core.js"
+    "test": "jasmine ./test/neuralSpec.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/rainlst/neural-network#readme",
   "dependencies": {
     "numeric": "^1.2.6"
+  },
+  "devDependencies": {
+    "jasmine": "^2.8.0"
   }
 }
