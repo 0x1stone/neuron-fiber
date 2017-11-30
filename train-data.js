@@ -1,5 +1,5 @@
 
-var Perceptron = require('./neural-core.js')
+var Perceptron = require('./src/neural-core.js')
 
 var x = [
   [0, 0, 1, 0],
