@@ -12,7 +12,7 @@ Follow these steps:
 1. [Install](#install)
 2. [Usage](#usage)
 3. [Algorithm](#algorithm)
-4. **[Review Example Code](https://github.com/rainlst/neuron-fiber/tree/master/examples)**
+4. **[Review Example Code](https://github.com/rainlst/neuron-fiber/tree/master/example)**
 
 ## Install
 
