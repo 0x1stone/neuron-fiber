@@ -1,5 +1,5 @@
 {
-  "name": "neural",
+  "name": "neuron-fiber",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rainlst/neural-network.git"
+    "url": "git+https://github.com/rainlst/neuron-fiber.git"
   },
   "author": "stone",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rainlst/neural-network/issues"
+    "url": "https://github.com/rainlst/neuron-fiber/issues"
   },
-  "homepage": "https://github.com/rainlst/neural-network#readme",
+  "homepage": "https://github.com/rainlst/neuron-fiber#readme",
   "dependencies": {
     "numeric": "^1.2.6"
   },
