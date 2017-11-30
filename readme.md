@@ -1,5 +1,7 @@
 # 基于js的神经网络实现
 
+[![Build Status](https://secure.travis-ci.org/rainlst/neural-network.png?branch=master)](http://secure.travis-ci.org/rainlst/neural-network)
+
 > By stone
 
 
