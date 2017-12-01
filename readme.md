@@ -24,8 +24,22 @@ $ npm install neuron-fiber --save
 
 ```es6
 const Perceptron = require('neuron-fiber')
+
 /**
  * input
+ * eg
+ * [0, 0, 1, 0]  match output [0]
+ * [0, 1, 1, 0] => [0]
+ * [1, 0, 1, 0] => [1]
+ * [1, 1, 1, 0] => [1]
+ * ..
+ * each case has one matched output 
+ * we should know the realtion between input and output which call weight
+ * use neuron.w will show you weight after training data every time 
+ * 
+ * predict is the function can use weight to generate a output accoding to your training data(input and ouput)
+ * 
+ * .
  */
 const x = [
   [0, 0, 1, 0],
@@ -51,7 +65,8 @@ const times = 1000
 
 
 /**
- * data ready to predict result
+ * data is never seen before
+ * 
  */
 const data=[[1, 1, 1, 1]]
 
@@ -64,6 +79,8 @@ const neuron = new Perceptron(x, y, times)
 
 /**
  * result is predicted
+ * result is generated accoding to weight , also data case never appear before.
+ * why we call it predict 
  */
 const result = neuron.predict(data)
 
