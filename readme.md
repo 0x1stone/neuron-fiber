@@ -3,7 +3,7 @@
 [![neuron-fiber on NPM](https://img.shields.io/npm/v/neuron-fiber.svg?style=flat-square)](https://www.npmjs.com/package/neuron-fiber)
 [![Build Status](https://secure.travis-ci.org/rainlst/neural-network.png?branch=master)](http://secure.travis-ci.org/rainlst/neural-network)
 
-> "You want to hide a tree ,then a forest is a best place to do" stone
+> "You want to explore a forest ,then a tree is a best place to do" - stone
 
 ## Getting Started
 
@@ -95,5 +95,5 @@ const result = neuron.predict(data)
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT). © 2017
+[MIT](https://opensource.org/licenses/MIT). © 2017 lau stone
 
