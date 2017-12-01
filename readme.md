@@ -93,3 +93,7 @@ const result = neuron.predict(data)
 * Weight update : W(j) = W(j) + delta W(j)
 * Delata W(j)= X(j) .* (Y-Y') * n
 
+## License
+
+[MIT](https://opensource.org/licenses/MIT). © 2017
+
