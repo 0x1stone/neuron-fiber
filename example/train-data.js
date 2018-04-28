@@ -1,38 +1,28 @@
-const Perceptron = require('../dist/neuron-core').default
+// const Perceptron = require('../dist/neuron-core').default
+const { NeuronNet, NeuronLayer } = require('../dist/index')
 
 /**
  * input
  */
-const x = [
-  [0, 0, 1, 0],
-  [0, 1, 1, 0],
-  [1, 0, 1, 0],
-  [1, 1, 1, 0]
-]
+const input = [[0, 0, 1, 0], [0, 1, 1, 0], [1, 0, 1, 0], [1, 1, 1, 0]]
 
 /**
  * output
  */
-const y = [
-  [0],
-  [0],
-  [1],
-  [1]
-]
+const output = [[0], [0], [1], [1]]
 
 /**
  * training times
  */
-const times = 1000
+const iteration = 1000
 
 /**
  * data ready to predict result
  */
-const data=[[1, 1, 1, 1]]
+const data = [[1, 1, 1, 1]]
 
-const neuron = new Perceptron(x, y, times)
-console.log(neuron.w)
-console.log(neuron.resultY)
+const neuronNet = new NeuronNet(input, output, iteration)
+neuronNet.link(new NeuronLayer(4))
 
-const result = neuron.predict(data)
-console.log(result)
+
+console.log(neuronNet)

@@ -15,16 +15,19 @@
             this.y = y;
             this.resultY;
             this.iteration = iteration;
+            this.neuronLayers = [];
         }
         predict(x) {
             // return this.sigmoid(numeric.dot(x, this.w))
         }
         train() {
-            for (let i = 1; i <= this.iteration; i++) {
-            }
+            for (let i = 1; i <= this.iteration; i++) { }
         }
         link(neuronLayer) {
+            // neuronLayer
+            // neuronLayer.x
             this.neuronLayers.push(neuronLayer);
+            return this;
         }
     }
     exports.default = NeuronNet;

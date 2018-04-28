@@ -11,6 +11,7 @@ export default class NeuronNet {
     this.y = y
     this.resultY
     this.iteration = iteration
+    this.neuronLayers = []
   }
 
   predict(x: Array<any>) {
@@ -18,12 +19,13 @@ export default class NeuronNet {
   }
 
   public train() {
-    for (let i = 1; i <= this.iteration; i++) {
-  
-    }
+    for (let i = 1; i <= this.iteration; i++) {}
   }
 
-  public link(neuronLayer: Array<any>): void {
+  public link(neuronLayer: Array<any>): any {
+    // neuronLayer
+    // neuronLayer.x
     this.neuronLayers.push(neuronLayer)
+    return this
   }
 }

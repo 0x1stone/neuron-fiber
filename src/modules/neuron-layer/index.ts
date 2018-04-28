@@ -6,18 +6,17 @@ export default class Perceptron {
   public resultY: Array<any>
   public w: Array<any>
   private iteration: number
-  constructor(x: Array<any>, y: Array<any>, iteration: number) {
+  private dimension: number
+  constructor(dimension: number) {
     // n 学习率
     // iteration 训练次数
     // w 权重向量
-    this.x = x
-    this.y = y
+    this.dimension = dimension
     this.resultY
     this.w
-    this.iteration = iteration
 
-    this.initWeight()
-    this.train()
+    // this.initWeight()
+    // this.train()
   }
 
   initWeight() {

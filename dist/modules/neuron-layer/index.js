@@ -21,8 +21,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             this.dimension = dimension;
             this.resultY;
             this.w;
-            this.initWeight();
-            this.train();
+            // this.initWeight()
+            // this.train()
         }
         initWeight() {
             this.w = numeric_1.default.sub(numeric_1.default.mul(2, numeric_1.default.random([this.x[0].length, 1])), 1);

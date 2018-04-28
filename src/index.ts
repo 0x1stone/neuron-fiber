@@ -1,7 +1,7 @@
 import NeuronNet from './modules/neuron-net'
-import Neuron from './modules/neuron'
+import NeuronLayer from './modules/neuron-layer'
 
 export {
   NeuronNet,
-  Neuron
+  NeuronLayer
 }
