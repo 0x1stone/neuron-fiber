@@ -1,5 +1,4 @@
-
-const Perceptron = require('../index.js')
+const Perceptron = require('../dist/neuron-core').default
 
 /**
  * input

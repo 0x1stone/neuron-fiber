@@ -1,2 +1,4 @@
-const neuron = require('./src/neuron-core.js')
-module.exports = neuron
+const Perceptron = require('./dist/neuron-core')
+// import {Perceptron} from './dist/neuron-core'
+// export default Perceptron
+module.exports = Perceptron

@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine ./test/neuralSpec.js"
+    "test": "jasmine ./test/neuralSpec.js",
+    "start": "node dist/index.js",
+    "build": "rimraf dist && tsc",
+    "dev": "npm run watch-ts & npm run watch-node",
+    "watch-node": "nodemon example/train-data.js",
+    "watch-ts": "tsc -w"
   },
   "repository": {
     "type": "git",
@@ -20,6 +25,11 @@
     "numeric": "^1.2.6"
   },
   "devDependencies": {
-    "jasmine": "^2.8.0"
+    "jasmine": "^2.8.0",
+    "@types/node": "^9.4.6",
+    "babel-polyfill": "^6.20.0",
+    "nodemon": "^1.17.1",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.7.2"
   }
 }

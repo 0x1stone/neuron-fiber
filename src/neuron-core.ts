@@ -1,7 +1,12 @@
-const numeric = require('numeric')
+import numeric from 'numeric'
 
-module.exports = class Perceptron {
-  constructor(x, y, iteration) {
+exports.default = class Perceptron {
+  readonly x: Array<any>
+  public y: Array<any>
+  public resultY: Array<any>
+  public w: Array<any>
+  private iteration: number
+  constructor(x: Array<any>, y: Array<any>, iteration: number) {
     // n 学习率
     // iteration 训练次数
     // w 权重向量
@@ -22,15 +27,15 @@ module.exports = class Perceptron {
     )
   }
 
-  predict(x) {
+  predict(x: Array<any>) {
     return this.sigmoid(numeric.dot(x, this.w))
   }
 
-  sigmoid(x) {
+  sigmoid(x: Array<any>) {
     return numeric.div(1, numeric.add(1, numeric.exp(numeric.neg(x))))
   }
 
-  derivSigmoid(x) {
+  derivSigmoid(x: Array<any>) {
     return numeric.mul(x, numeric.sub(1, x))
   }
 
