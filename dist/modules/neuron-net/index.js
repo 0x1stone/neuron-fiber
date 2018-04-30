@@ -11,26 +11,21 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     class NeuronNet {
         constructor(input, output, iteration) {
+            this.neuronLayers = [];
             this.input = input;
             this.output = output;
             this.iteration = iteration;
-            this.neuronLayer = null;
         }
         predict(x) {
             // return this.sigmoid(numeric.dot(x, this.w))
         }
         train() {
             for (let i = 1; i <= this.iteration; i++) {
-                this.trainLayer(this.neuronLayer, this.input);
+                this.trainLayer(this.neuronLayers, this.input, this.output);
             }
         }
-        trainLayer(neuronLayer, input) {
+        trainLayer(neuronLayers, input, output) {
             // 正向传播
-            neuronLayer.input = input;
-            neuronLayer.train();
-            if (neuronLayer.next) {
-                this.trainLayer(neuronLayer.next, neuronLayer.output);
-            }
         }
         link(neuronLayer) {
             this.insertNeuralLayer(neuronLayer);
@@ -38,16 +33,7 @@
         }
         insertNeuralLayer(neuronLayer) {
             // first layer
-            if (!this.neuronLayer) {
-                this.neuronLayer = neuronLayer;
-                return;
-            }
-            if (!neuronLayer.next) {
-                this.neuronLayer.next = neuronLayer;
-            }
-            else {
-                this.insertNeuralLayer(neuronLayer.next);
-            }
+            this.neuronLayers.push(neuronLayer);
         }
     }
     exports.default = NeuronNet;

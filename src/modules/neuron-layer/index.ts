@@ -6,8 +6,6 @@ export default class NeuralLayer implements INeuralLayer {
   public output: Array<any>
   public weight: Array<any> | null = null
   private amount: number
-  public pre: INeuralLayer | null
-  public next: INeuralLayer | null
   constructor(amount: number) {
     this.amount = amount
   }

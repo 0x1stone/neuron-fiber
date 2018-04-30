@@ -5,12 +5,11 @@ export default class NeuronNet {
   readonly input: Array<any>
   public output: Array<any>
   private iteration: number
-  public neuronLayer: INeuralLayer | null
+  public neuronLayers: Array<INeuralLayer> = []
   constructor(input: Array<any>, output: Array<any>, iteration: number) {
     this.input = input
     this.output = output
     this.iteration = iteration
-    this.neuronLayer = null
   }
 
   public predict(x: Array<any>) {
@@ -19,17 +18,16 @@ export default class NeuronNet {
 
   public train() {
     for (let i = 1; i <= this.iteration; i++) {
-      this.trainLayer(this.neuronLayer, this.input)
+      this.trainLayer(this.neuronLayers, this.input, this.output)
     }
   }
 
-  private trainLayer(neuronLayer: INeuralLayer, input: Array<any>) {
+  private trainLayer(
+    neuronLayers: Array<INeuralLayer>,
+    input: Array<any>,
+    output: Array<any>
+  ) {
     // 正向传播
-    neuronLayer.input = input
-    neuronLayer.train()
-    if (neuronLayer.next) {
-      this.trainLayer(neuronLayer.next, neuronLayer.output)
-    }
   }
 
   public link(neuronLayer: INeuralLayer): any {
@@ -39,14 +37,6 @@ export default class NeuronNet {
 
   private insertNeuralLayer(neuronLayer: INeuralLayer) {
     // first layer
-    if (!this.neuronLayer) {
-      this.neuronLayer = neuronLayer
-      return
-    }
-    if (!neuronLayer.next) {
-      this.neuronLayer.next = neuronLayer
-    } else {
-      this.insertNeuralLayer(neuronLayer.next)
-    }
+    this.neuronLayers.push(neuronLayer)
   }
 }
