@@ -43,7 +43,7 @@ export default class NeuronNet {
       this.neuronLayer = neuronLayer
       return
     }
-    if (Object.keys(this.neuronLayer.next).length === 0) {
+    if (!neuronLayer.next) {
       this.neuronLayer.next = neuronLayer
     } else {
       this.insertNeuralLayer(neuronLayer.next)
