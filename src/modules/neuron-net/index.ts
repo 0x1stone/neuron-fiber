@@ -1,20 +1,19 @@
 import numeric from 'numeric'
+import INeuralLayer from '../neuron-layer/type'
 
 export default class NeuronNet {
-  readonly x: Array<any>
-  public y: Array<any>
-  public resultY: Array<any>
+  readonly input: Array<any>
+  public output: Array<any>
   private iteration: number
-  public neuronLayers: Array<any>
-  constructor(x: Array<any>, y: Array<any>, iteration: number) {
-    this.x = x
-    this.y = y
-    this.resultY
+  public neuronLayer: INeuralLayer | null
+  constructor(input: Array<any>, output: Array<any>, iteration: number) {
+    this.input = input
+    this.output = output
     this.iteration = iteration
-    this.neuronLayers = []
+    this.neuronLayer = null
   }
 
-  predict(x: Array<any>) {
+  public predict(x: Array<any>) {
     // return this.sigmoid(numeric.dot(x, this.w))
   }
 
@@ -22,10 +21,21 @@ export default class NeuronNet {
     for (let i = 1; i <= this.iteration; i++) {}
   }
 
-  public link(neuronLayer: Array<any>): any {
-    // neuronLayer
-    // neuronLayer.x
-    this.neuronLayers.push(neuronLayer)
+  public link(neuronLayer: INeuralLayer): any {
+    this.insertNeuralLayer(neuronLayer)
     return this
+  }
+
+  private insertNeuralLayer(neuronLayer: INeuralLayer) {
+    // first layer
+    if (!this.neuronLayer) {
+      this.neuronLayer = neuronLayer
+      return
+    }
+    if (Object.keys(this.neuronLayer.next).length !== 0) {
+      this.neuronLayer.next = neuronLayer
+    } else {
+      this.insertNeuralLayer(neuronLayer)
+    }
   }
 }

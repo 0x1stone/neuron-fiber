@@ -4,18 +4,18 @@ import INeuralLayer from './type'
 export default class NeuralLayer implements INeuralLayer {
   public input: Array<any>
   public weight: Array<any> = []
-  private iteration: number
+  // private iteration: number
   private amount: number
-  public preLayer: INeuralLayer | null
-  public nextLayer: INeuralLayer | null
+  public pre: INeuralLayer | null
+  public next: INeuralLayer | null
   constructor(amount: number) {
     this.amount = amount
     this.initWeight()
   }
 
   set output(value: Array<any>) {
-    if (this.nextLayer) {
-      this.nextLayer.input = value
+    if (this.next) {
+      this.next.input = value
     }
   }
 
@@ -39,23 +39,23 @@ export default class NeuralLayer implements INeuralLayer {
   }
 
   train() {
-    for (let i = 1; i <= this.iteration; i++) {
-      // 权重更新算法
-      // W(j)=W(j)+delta W(j)
-      // delata W(j)= X(j) .* (Y-Y') * 学习率n
-      // Y'= w.x
-      this.output = this.predict(this.input)
+    // for (let i = 1; i <= this.iteration; i++) {
+    // 权重更新算法
+    // W(j)=W(j)+delta W(j)
+    // delata W(j)= X(j) .* (Y-Y') * 学习率n
+    // Y'= w.x
+    this.output = this.predict(this.input)
 
-      // (Y-Y')
-      const errorOutput = numeric.sub(this.output, this.output)
+    // (Y-Y')
+    const errorOutput = numeric.sub(this.output, this.output)
 
-      // X(j) .*  （学习率n * (Y-Y')）
-      const deltaW = numeric.dot(
-        numeric.transpose(this.input),
-        numeric.mul(this.derivSigmoid(this.output), errorOutput)
-      )
+    // X(j) .*  （学习率n * (Y-Y')）
+    const deltaW = numeric.dot(
+      numeric.transpose(this.input),
+      numeric.mul(this.derivSigmoid(this.output), errorOutput)
+    )
 
-      this.weight = numeric.add(this.weight, deltaW) // W(j)=W(j)+delta W(j)
-    }
+    this.weight = numeric.add(this.weight, deltaW) // W(j)=W(j)+delta W(j)
   }
+  // }
 }
