@@ -15,7 +15,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     const numeric_1 = __importDefault(require("numeric"));
     class NeuralLayer {
         constructor(amount) {
-            this.weight = null;
             this.amount = amount;
         }
         initWeight() {

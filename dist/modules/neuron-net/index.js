@@ -26,6 +26,7 @@
         }
         trainLayer(neuronLayers, input, output) {
             // 正向传播
+            console.log(neuronLayers);
         }
         link(neuronLayer) {
             this.insertNeuralLayer(neuronLayer);

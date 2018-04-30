@@ -4,7 +4,7 @@ import INeuralLayer from './type'
 export default class NeuralLayer implements INeuralLayer {
   public input: Array<any>
   public output: Array<any>
-  public weight: Array<any> | null = null
+  public weight: Array<any>
   private amount: number
   constructor(amount: number) {
     this.amount = amount

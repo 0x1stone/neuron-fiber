@@ -28,6 +28,7 @@ export default class NeuronNet {
     output: Array<any>
   ) {
     // 正向传播
+    console.log(neuronLayers)
   }
 
   public link(neuronLayer: INeuralLayer): any {
