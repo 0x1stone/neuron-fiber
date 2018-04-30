@@ -65,24 +65,25 @@ const times = 1000
 
 
 /**
- * data is never seen before
- * 
+ * data is ready to be predicted
  */
-const data=[[1, 1, 1, 1]]
+const data = [[0, 0, 0, 0]]
 
+const neuronNet = new NeuronNet(input, output, iteration)
 
 /**
- * begin to train 1000 times
+ * link to more neural layer 
+ * <params> the number of neurons
  */
-const neuron = new Perceptron(x, y, times)
 
+neuronNet
+  .link(new NeuronLayer(5))
+  .link(new NeuronLayer(3))
+  .link(new NeuronLayer(1))
 
-/**
- * result is predicted
- * result is generated accoding to weight , also data case never appear before.
- * why we call it predict 
- */
-const result = neuron.predict(data)
+neuronNet.train()
+
+const result = neuronNet.predict(data))
 
 
 ```
