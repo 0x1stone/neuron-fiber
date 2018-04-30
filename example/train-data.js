@@ -4,7 +4,7 @@ const { NeuronNet, NeuronLayer } = require('../dist/index')
 /**
  * input
  */
-const input = [[0, 0, 1, 0], [0, 1, 1, 0], [1, 0, 1, 0], [1, 1, 1, 0]]
+const input = [[0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 1]]
 
 /**
  * output
@@ -14,21 +14,19 @@ const output = [[0], [0], [1], [1]]
 /**
  * training times
  */
-const iteration = 1
+const iteration = 100
 
 /**
- * data is ready to be predicted 
+ * data is ready to be predicted
  */
 const data = [[1, 1, 1, 1]]
 
 const neuronNet = new NeuronNet(input, output, iteration)
 
-neuronNet
-  .link(new NeuronLayer(4))
-  .link(new NeuronLayer(1))
+neuronNet.link(new NeuronLayer(4)).link(new NeuronLayer(1))
 
 neuronNet.train()
 
-console.log(neuronNet.predict(input))
+console.log(neuronNet.predict(data))
 
 console.log(neuronNet)

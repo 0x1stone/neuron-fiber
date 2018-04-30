@@ -32,19 +32,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             }, []);
         }
         backwardSpread() {
-            let errorOutput, deltaWeight;
+            let errorOutput, deltaWeight, currentLayer, preLayer;
             const lastLayer = this.neuronLayers[this.neuronLayers.length - 1];
             for (let i = this.neuronLayers.length - 1; i >= 0; i = i - 1) {
-                const currentLayer = this.neuronLayers[i];
+                currentLayer = this.neuronLayers[i];
                 // last layer
                 if (i === this.neuronLayers.length - 1) {
                     errorOutput = numeric_1.default.sub(this.output, lastLayer.output);
                 }
                 else {
-                    errorOutput = numeric_1.default.dot(errorOutput, numeric_1.default.transpose(currentLayer.weight));
+                    errorOutput = numeric_1.default.dot(deltaWeight, numeric_1.default.transpose(preLayer.weight));
                 }
-                deltaWeight = numeric_1.default.dot(numeric_1.default.transpose(currentLayer.input), numeric_1.default.mul(this.derivSigmoid(currentLayer.output), errorOutput));
-                currentLayer.weight = numeric_1.default.add(currentLayer.weight, deltaWeight);
+                deltaWeight = numeric_1.default.mul(errorOutput, this.derivSigmoid(currentLayer.output));
+                currentLayer.weight = numeric_1.default.add(currentLayer.weight, numeric_1.default.dot(numeric_1.default.transpose(currentLayer.input), deltaWeight));
+                preLayer = this.neuronLayers[i];
             }
         }
         train() {

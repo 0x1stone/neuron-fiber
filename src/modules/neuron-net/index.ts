@@ -19,37 +19,40 @@ export default class NeuronNet {
 
   // forward direction to spread
   public predict(input: Array<any>) {
-    return this.neuronLayers.reduce(
-      (pre: any, current: INeuralLayer): any => {
-        current.input = pre.length !== 0 ? pre : input
-        current.train()
-        return  current.output
-      }, [] 
-    )
+    return this.neuronLayers.reduce((pre: any, current: INeuralLayer): any => {
+      current.input = pre.length !== 0 ? pre : input
+      current.train()
+      return current.output
+    }, [])
   }
 
   private backwardSpread(): void {
-    let errorOutput, deltaWeight
+    let errorOutput, deltaWeight, currentLayer, preLayer
     const lastLayer = this.neuronLayers[this.neuronLayers.length - 1]
     for (let i = this.neuronLayers.length - 1; i >= 0; i = i - 1) {
-      const currentLayer = this.neuronLayers[i]
+      currentLayer = this.neuronLayers[i]
 
       // last layer
       if (i === this.neuronLayers.length - 1) {
         errorOutput = numeric.sub(this.output, lastLayer.output)
       } else {
         errorOutput = numeric.dot(
-          errorOutput,
-          numeric.transpose(currentLayer.weight)
+          deltaWeight,
+          numeric.transpose(preLayer.weight)
         )
       }
 
-      deltaWeight = numeric.dot(
-        numeric.transpose(currentLayer.input),
-        numeric.mul(this.derivSigmoid(currentLayer.output), errorOutput)
+      deltaWeight = numeric.mul(
+        errorOutput,
+        this.derivSigmoid(currentLayer.output)
       )
 
-      currentLayer.weight = numeric.add(currentLayer.weight, deltaWeight)
+      currentLayer.weight = numeric.add(
+        currentLayer.weight,
+        numeric.dot(numeric.transpose(currentLayer.input), deltaWeight)
+      )
+    
+      preLayer = this.neuronLayers[i]
     }
   }
 
