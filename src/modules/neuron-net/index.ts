@@ -19,12 +19,17 @@ export default class NeuronNet {
 
   public train() {
     for (let i = 1; i <= this.iteration; i++) {
-      this.trainLayer(this.neuronLayer)
+      this.trainLayer(this.neuronLayer, this.input)
     }
   }
 
-  private trainLayer(neuronLayer: INeuralLayer) {
+  private trainLayer(neuronLayer: INeuralLayer, input: Array<any>) {
+    // 正向传播
+    neuronLayer.input = input
     neuronLayer.train()
+    if (neuronLayer.next) {
+      this.trainLayer(neuronLayer.next, neuronLayer.output)
+    }
   }
 
   public link(neuronLayer: INeuralLayer): any {
@@ -36,7 +41,6 @@ export default class NeuronNet {
     // first layer
     if (!this.neuronLayer) {
       this.neuronLayer = neuronLayer
-      this.neuronLayer.input = this.input
       return
     }
     if (Object.keys(this.neuronLayer.next).length === 0) {
