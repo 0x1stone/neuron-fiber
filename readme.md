@@ -23,7 +23,7 @@ $ npm install neuron-fiber --save
 ## Usage
 
 ```es6
-const Perceptron = require('neuron-fiber')
+const { NeuronNet, NeuronLayer } = require('neuron-fiber')
 
 /**
  * input
