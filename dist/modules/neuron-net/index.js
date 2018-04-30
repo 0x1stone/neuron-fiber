@@ -26,10 +26,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         // forward direction to spread
         predict(input) {
             return this.neuronLayers.reduce((pre, current) => {
-                current.input = pre.input.length !== 0 ? pre.input : input;
+                current.input = pre.length !== 0 ? pre : input;
                 current.train();
-                return { input: current.output };
-            }, { input: [] });
+                return current.output;
+            }, []);
         }
         backwardSpread() {
             let errorOutput, deltaWeight;

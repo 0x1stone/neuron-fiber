@@ -20,12 +20,11 @@ export default class NeuronNet {
   // forward direction to spread
   public predict(input: Array<any>) {
     return this.neuronLayers.reduce(
-      (pre: INeuralLayer, current: INeuralLayer): any => {
-        current.input = pre.input.length !== 0 ? pre.input : input
+      (pre: any, current: INeuralLayer): any => {
+        current.input = pre.length !== 0 ? pre : input
         current.train()
-        return { input: current.output }
-      },
-      { input: [] }
+        return  current.output
+      }, [] 
     )
   }
 
