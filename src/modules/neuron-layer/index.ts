@@ -2,19 +2,21 @@ import numeric from 'numeric'
 import INeuralLayer from './type'
 
 export default class NeuralLayer implements INeuralLayer {
-  readonly input: Array<any>
-  public output: Array<any>
-  public resultY: Array<any>
-  public weight: Array<any>
+  public input: Array<any>
+  public weight: Array<any> = []
   private iteration: number
   private amount: number
+  public preLayer: INeuralLayer | null
+  public nextLayer: INeuralLayer | null
   constructor(amount: number) {
-    // n 学习率
-    // iteration 训练次数
-    // w 权重向量
     this.amount = amount
-    this.resultY
-    this.weight
+    this.initWeight()
+  }
+
+  set output(value: Array<any>) {
+    if (this.nextLayer) {
+      this.nextLayer.input = value
+    }
   }
 
   initWeight() {
@@ -41,17 +43,16 @@ export default class NeuralLayer implements INeuralLayer {
       // 权重更新算法
       // W(j)=W(j)+delta W(j)
       // delata W(j)= X(j) .* (Y-Y') * 学习率n
-
       // Y'= w.x
-      this.resultY = this.predict(this.input)
+      this.output = this.predict(this.input)
 
       // (Y-Y')
-      const deltaY = numeric.sub(this.output, this.resultY)
+      const errorOutput = numeric.sub(this.output, this.output)
 
       // X(j) .*  （学习率n * (Y-Y')）
       const deltaW = numeric.dot(
         numeric.transpose(this.input),
-        numeric.mul(this.derivSigmoid(this.resultY), deltaY)
+        numeric.mul(this.derivSigmoid(this.output), errorOutput)
       )
 
       this.weight = numeric.add(this.weight, deltaW) // W(j)=W(j)+delta W(j)
