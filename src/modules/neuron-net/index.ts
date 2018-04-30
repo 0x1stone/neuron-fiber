@@ -12,31 +12,27 @@ export default class NeuronNet {
     this.iteration = iteration
   }
 
-  public predict(x: Array<any>) {
-    // return this.sigmoid(numeric.dot(x, this.w))
-  }
-
-  public train() {
-    for (let i = 1; i <= this.iteration; i++) {
-      this.trainLayer(this.neuronLayers, this.input, this.output)
-    }
-  }
-
-  private trainLayer(
-    neuronLayers: Array<INeuralLayer>,
-    input: Array<any>,
-    output: Array<any>
-  ) {
-    // forward direction to spread
-    neuronLayers.reduce(
+  // forward direction to spread
+  public predict(input: Array<any>) {  
+    this.neuronLayers.reduce(
       (pre: INeuralLayer, current: INeuralLayer): any => {
-        current.input = pre.input.length!==0 ? pre.input : this.input
+        current.input = pre.input.length!==0 ? pre.input : input
         current.train()
-        console.log(current)
         return { input: current.output }
       },
       { input: [] }
     )
+  }
+
+  public train() {
+    for (let i = 1; i <= this.iteration; i++) {
+      this.trainLayer()
+    }
+  }
+
+  private trainLayer() {
+    this.predict(this.input)
+
   }
 
   public link(neuronLayer: INeuralLayer): any {

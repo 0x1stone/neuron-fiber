@@ -17,7 +17,7 @@ const output = [[0], [0], [1], [1]]
 const iteration = 1
 
 /**
- * data ready to predict result
+ * data is ready to be predicted 
  */
 const data = [[1, 1, 1, 1]]
 

@@ -16,22 +16,21 @@
             this.output = output;
             this.iteration = iteration;
         }
-        predict(x) {
-            // return this.sigmoid(numeric.dot(x, this.w))
+        // forward direction to spread
+        predict(input) {
+            this.neuronLayers.reduce((pre, current) => {
+                current.input = pre.input.length !== 0 ? pre.input : input;
+                current.train();
+                return { input: current.output };
+            }, { input: [] });
         }
         train() {
             for (let i = 1; i <= this.iteration; i++) {
-                this.trainLayer(this.neuronLayers, this.input, this.output);
+                this.trainLayer();
             }
         }
-        trainLayer(neuronLayers, input, output) {
-            // forward direction to spread
-            neuronLayers.reduce((pre, current) => {
-                current.input = pre.input.length !== 0 ? pre.input : this.input;
-                current.train();
-                console.log(current);
-                return { input: current.output };
-            }, { input: [] });
+        trainLayer() {
+            this.predict(this.input);
         }
         link(neuronLayer) {
             this.insertNeuralLayer(neuronLayer);
