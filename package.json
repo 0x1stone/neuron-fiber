@@ -2,7 +2,7 @@
   "name": "neuron-fiber",
   "version": "1.0.8",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jasmine ./test/neuralSpec.js",
     "start": "node dist/index.js",
