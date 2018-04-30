@@ -20,7 +20,12 @@
             // return this.sigmoid(numeric.dot(x, this.w))
         }
         train() {
-            for (let i = 1; i <= this.iteration; i++) { }
+            for (let i = 1; i <= this.iteration; i++) {
+                this.trainLayer(this.neuronLayer);
+            }
+        }
+        trainLayer(neuronLayer) {
+            neuronLayer.train();
         }
         link(neuronLayer) {
             this.insertNeuralLayer(neuronLayer);
@@ -30,13 +35,14 @@
             // first layer
             if (!this.neuronLayer) {
                 this.neuronLayer = neuronLayer;
+                this.neuronLayer.input = this.input;
                 return;
             }
-            if (Object.keys(this.neuronLayer.next).length !== 0) {
+            if (Object.keys(this.neuronLayer.next).length === 0) {
                 this.neuronLayer.next = neuronLayer;
             }
             else {
-                this.insertNeuralLayer(neuronLayer);
+                this.insertNeuralLayer(neuronLayer.next);
             }
         }
     }

@@ -14,7 +14,7 @@ const output = [[0], [0], [1], [1]]
 /**
  * training times
  */
-const iteration = 1000
+const iteration = 1
 
 /**
  * data ready to predict result
@@ -24,5 +24,6 @@ const data = [[1, 1, 1, 1]]
 const neuronNet = new NeuronNet(input, output, iteration)
 neuronNet.link(new NeuronLayer(4))
 
+neuronNet.train()
 
 console.log(neuronNet)

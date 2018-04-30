@@ -4,4 +4,5 @@ export default interface INeuralLayer {
   weight: Array<any>
   next: INeuralLayer | null
   pre: INeuralLayer | null
+  train: () => void
 }
