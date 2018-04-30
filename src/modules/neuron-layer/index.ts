@@ -1,33 +1,31 @@
 import numeric from 'numeric'
+import INeuralLayer from './type'
 
-export default class Perceptron {
-  readonly x: Array<any>
-  public y: Array<any>
+export default class NeuralLayer implements INeuralLayer {
+  readonly input: Array<any>
+  public output: Array<any>
   public resultY: Array<any>
-  public w: Array<any>
+  public weight: Array<any>
   private iteration: number
-  private dimension: number
-  constructor(dimension: number) {
+  private amount: number
+  constructor(amount: number) {
     // n 学习率
     // iteration 训练次数
     // w 权重向量
-    this.dimension = dimension
+    this.amount = amount
     this.resultY
-    this.w
-
-    // this.initWeight()
-    // this.train()
+    this.weight
   }
 
   initWeight() {
-    this.w = numeric.sub(
-      numeric.mul(2, numeric.random([this.x[0].length, 1])),
+    this.weight = numeric.sub(
+      numeric.mul(2, numeric.random([this.input[0].length, 1])),
       1
     )
   }
 
   predict(x: Array<any>) {
-    return this.sigmoid(numeric.dot(x, this.w))
+    return this.sigmoid(numeric.dot(x, this.weight))
   }
 
   sigmoid(x: Array<any>) {
@@ -44,16 +42,19 @@ export default class Perceptron {
       // W(j)=W(j)+delta W(j)
       // delata W(j)= X(j) .* (Y-Y') * 学习率n
 
-      // 学习率 derivSigmoid() 来构建,代表 sigmoid 的导数，即斜率
+      // Y'= w.x
+      this.resultY = this.predict(this.input)
 
-      this.resultY = this.predict(this.x) // Y'= w.x
-      const deltaY = numeric.sub(this.y, this.resultY) // (Y-Y')
+      // (Y-Y')
+      const deltaY = numeric.sub(this.output, this.resultY)
+
+      // X(j) .*  （学习率n * (Y-Y')）
       const deltaW = numeric.dot(
-        numeric.transpose(this.x),
+        numeric.transpose(this.input),
         numeric.mul(this.derivSigmoid(this.resultY), deltaY)
-      ) // X(j) .*  （学习率n * (Y-Y')）
+      )
 
-      this.w = numeric.add(this.w, deltaW) // W(j)=W(j)+delta W(j)
+      this.weight = numeric.add(this.weight, deltaW) // W(j)=W(j)+delta W(j)
     }
   }
 }
