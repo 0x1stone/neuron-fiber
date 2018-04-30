@@ -4,7 +4,6 @@ import INeuralLayer from './type'
 export default class NeuralLayer implements INeuralLayer {
   public input: Array<any>
   public weight: Array<any> = []
-  // private iteration: number
   private amount: number
   public pre: INeuralLayer | null
   public next: INeuralLayer | null

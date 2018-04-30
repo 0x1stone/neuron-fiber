@@ -13,22 +13,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const numeric_1 = __importDefault(require("numeric"));
-    class Perceptron {
-        constructor(dimension) {
-            // n 学习率
-            // iteration 训练次数
-            // w 权重向量
-            this.dimension = dimension;
-            this.resultY;
-            this.w;
-            // this.initWeight()
-            // this.train()
+    class NeuralLayer {
+        constructor(amount) {
+            this.weight = [];
+            this.amount = amount;
+            this.initWeight();
+        }
+        set output(value) {
+            if (this.next) {
+                this.next.input = value;
+            }
         }
         initWeight() {
-            this.w = numeric_1.default.sub(numeric_1.default.mul(2, numeric_1.default.random([this.x[0].length, 1])), 1);
+            this.weight = numeric_1.default.sub(numeric_1.default.mul(2, numeric_1.default.random([this.input[0].length, 1])), 1);
         }
         predict(x) {
-            return this.sigmoid(numeric_1.default.dot(x, this.w));
+            return this.sigmoid(numeric_1.default.dot(x, this.weight));
         }
         sigmoid(x) {
             return numeric_1.default.div(1, numeric_1.default.add(1, numeric_1.default.exp(numeric_1.default.neg(x))));
@@ -37,17 +37,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             return numeric_1.default.mul(x, numeric_1.default.sub(1, x));
         }
         train() {
-            for (let i = 1; i <= this.iteration; i++) {
-                // 权重更新算法
-                // W(j)=W(j)+delta W(j)
-                // delata W(j)= X(j) .* (Y-Y') * 学习率n
-                // 学习率 derivSigmoid() 来构建,代表 sigmoid 的导数，即斜率
-                this.resultY = this.predict(this.x); // Y'= w.x
-                const deltaY = numeric_1.default.sub(this.y, this.resultY); // (Y-Y')
-                const deltaW = numeric_1.default.dot(numeric_1.default.transpose(this.x), numeric_1.default.mul(this.derivSigmoid(this.resultY), deltaY)); // X(j) .*  （学习率n * (Y-Y')）
-                this.w = numeric_1.default.add(this.w, deltaW); // W(j)=W(j)+delta W(j)
-            }
+            // for (let i = 1; i <= this.iteration; i++) {
+            // 权重更新算法
+            // W(j)=W(j)+delta W(j)
+            // delata W(j)= X(j) .* (Y-Y') * 学习率n
+            // Y'= w.x
+            this.output = this.predict(this.input);
+            // (Y-Y')
+            const errorOutput = numeric_1.default.sub(this.output, this.output);
+            // X(j) .*  （学习率n * (Y-Y')）
+            const deltaW = numeric_1.default.dot(numeric_1.default.transpose(this.input), numeric_1.default.mul(this.derivSigmoid(this.output), errorOutput));
+            this.weight = numeric_1.default.add(this.weight, deltaW); // W(j)=W(j)+delta W(j)
         }
     }
-    exports.default = Perceptron;
+    exports.default = NeuralLayer;
 });
