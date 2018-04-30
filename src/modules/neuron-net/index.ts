@@ -27,8 +27,16 @@ export default class NeuronNet {
     input: Array<any>,
     output: Array<any>
   ) {
-    // 正向传播
-    console.log(neuronLayers)
+    // forward direction to spread
+    neuronLayers.reduce(
+      (pre: INeuralLayer, current: INeuralLayer): any => {
+        current.input = pre.input.length!==0 ? pre.input : this.input
+        current.train()
+        console.log(current)
+        return { input: current.output }
+      },
+      { input: [] }
+    )
   }
 
   public link(neuronLayer: INeuralLayer): any {

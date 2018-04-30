@@ -25,8 +25,13 @@
             }
         }
         trainLayer(neuronLayers, input, output) {
-            // 正向传播
-            console.log(neuronLayers);
+            // forward direction to spread
+            neuronLayers.reduce((pre, current) => {
+                current.input = pre.input.length !== 0 ? pre.input : this.input;
+                current.train();
+                console.log(current);
+                return { input: current.output };
+            }, { input: [] });
         }
         link(neuronLayer) {
             this.insertNeuralLayer(neuronLayer);

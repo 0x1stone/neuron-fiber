@@ -22,7 +22,11 @@ const iteration = 1
 const data = [[1, 1, 1, 1]]
 
 const neuronNet = new NeuronNet(input, output, iteration)
-neuronNet.link(new NeuronLayer(4))
+
+neuronNet
+  .link(new NeuronLayer(4))
+  .link(new NeuronLayer(3))
+  .link(new NeuronLayer(1))
 
 neuronNet.train()
 
