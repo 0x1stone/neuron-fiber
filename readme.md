@@ -41,7 +41,7 @@ const { NeuronNet, NeuronLayer } = require('neuron-fiber')
  * 
  * .
  */
-const x = [
+const input = [
   [0, 0, 1, 0],
   [0, 1, 1, 0],
   [1, 0, 1, 0],
@@ -51,7 +51,7 @@ const x = [
 /**
  * output
  */
-const y = [
+const output = [
   [0],
   [0],
   [1],
