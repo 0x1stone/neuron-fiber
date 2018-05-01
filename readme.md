@@ -61,7 +61,7 @@ const output = [
 /**
  * training times
  */
-const times = 1000
+const iteration = 1000
 
 
 /**
