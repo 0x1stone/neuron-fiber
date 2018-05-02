@@ -9,7 +9,7 @@ const input = [[0, 0, 0], [0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 1]]
 /**
  * output
  */
-const output = [[0, 1], [0, 0], [0, 1], [1, 1], [1, 0]]
+const output = [[0], [0], [1], [1], [0]]
 
 /**
  * training times
@@ -26,7 +26,7 @@ const neuronNet = new NeuronNet(input, output, iteration)
 neuronNet
   .link(new NeuronLayer(5))
   .link(new NeuronLayer(3))
-  .link(new NeuronLayer(2))
+  .link(new NeuronLayer(1))
 
 neuronNet.train()
 
