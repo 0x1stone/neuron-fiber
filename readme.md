@@ -1,7 +1,7 @@
 # neuron based in javascript
 
 [![neuron-fiber on NPM](https://img.shields.io/npm/v/neuron-fiber.svg?style=flat-square)](https://www.npmjs.com/package/neuron-fiber)
-[![Build Status](https://secure.travis-ci.org/rainlst/neural-network.png?branch=master)](http://secure.travis-ci.org/rainlst/neural-network)
+[![Build Status](https://secure.travis-ci.org/rainlst/neuron-fiber.png?branch=master)](http://secure.travis-ci.org/rainlst/neuron-fiber)
 
 > "You want to explore a forest ,then a tree is a best place to do" - stone
 
