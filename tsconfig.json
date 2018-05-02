@@ -2,11 +2,12 @@
   "compilerOptions": {
     "module": "umd",
     "target": "es6",
-    "allowJs": true,
+    "allowJs": false,
     "esModuleInterop": true,
     "noImplicitAny": true,
     "moduleResolution": "node",
     "sourceMap": false,
+    "declaration": true,
     "outDir": "dist",
     "baseUrl": "./src",
     "lib": ["es2017"],
