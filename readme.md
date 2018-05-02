@@ -103,7 +103,7 @@ console.log('result:'+resultMap(result))  //0
 ## API
 
 
-### new neuronNet(inputs, outputs, iteration)
+### new NeuronNet(inputs, outputs, iteration)
 * `inputs`:the data sample of inputs
 * `outputs`:the data sample of outputs
 * `iteration`:the number of training times
