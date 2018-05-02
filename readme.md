@@ -25,19 +25,25 @@ $ npm install neuron-fiber --save
 ```js
 const { NeuronNet, NeuronLayer } = require('neuron-fiber')
 
-// it looks like number: 0
+/**
+ *  Imagine looks like number: 0
+ */
 const number0 = '*****' 
               + '*---*'
               + '*---*'
               + '*****' 
 
-// it looks like number: 1
+/**
+ *  Imagine looks like number: 0
+ */
 const number1 = '*----' 
               + '*----'
               + '*----'
               + '*----'
 
-// it looks like number: 2
+/**
+ *  Imagine looks like number: 0
+ */
 const number2 = '*****' 
               + '--**-'
               + '-**--'
@@ -45,20 +51,19 @@ const number2 = '*****'
 
 
 function stringToArray(string){
-  // * => 1
-  // - => 0
+  // replace * >>> 1
+  // replace - >>> 0
   return string.trim().replace(/\*/g,1).replace(/-/g,0).split('')
 }
 
-const input = [stringToArray(number0), 
+const inputs = [stringToArray(number0), 
                stringToArray(number1), 
                stringToArray(number2)]
 
 
-// [0,0,0] one vector hot to repsent output
-const output = [[1,0,0],  // [1,0,0] represent number: 0
-                [0,1,0],  // [0,1,0] represent number: 1
-                [0,0,1]]  // [0,0,1] represent number: 2
+const outputs = [[0,0],  
+                [0,1],  
+                [1,1]]  
 
 
 function resultMap(result){
@@ -66,40 +71,58 @@ function resultMap(result){
     return Math.round(item)
   }))
   switch(n){
-    case '[1,0,0]':
+    case '[0,0]': // [1,0,0] >>> number: 0
       return 0
-    case '[0,1,0]':
+    case '[0,1]': // [0,1,0] >>> number: 1
       return 1
-    case '[0,0,1]':
+    case '[1,1]': // [0,0,1] >>> number: 2
       return 2
     default:
       return null
   }
 }
 
-
-const iteration = 10000
-
-const neuronNet = new NeuronNet(input, output, iteration)
+const neuronNet = new NeuronNet(inputs, outputs, 10000)
 
 neuronNet
   .link(new NeuronLayer(5))
   .link(new NeuronLayer(3))
-  .link(new NeuronLayer(3))
+  .link(new NeuronLayer(2))
 
 neuronNet.train()
 
-const data = '*----' 
-           + '*----'
-           + '**---'
-           + '*----' 
+const data = '*****' 
+           + '**--*'
+           + '*---*'
+           + '*****' 
 
 
 const result = neuronNet.predict([stringToArray(data)])
-console.log('result:'+resultMap(result)) // 1
+console.log('result:'+resultMap(result))  //0
 
 
 ```
+## API
+
+### new neuronNet(inputs, outputs, iteration)
+*`inputs`:the data sample of inputs
+*`outputs`:the data sample of outputs
+*`iteration`:the number of training times
+
+#### .link(options)
+The options is a object obtain a layer of neural layer
+
+#### .train()
+Begin to train and modify the weight of each neural layer
+
+#### .predict(input)
+this will return results
+*`input`:the data should to be predicted
+
+
+### new NeuronLayer(neuronNumber)
+*`neuronNumber`:the amount of neurons in this neural layer
+
 
 ## Algorithm
 * Define variable  n(Learning rate)  which is produced by deriv sigmoid

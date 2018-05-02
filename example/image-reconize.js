@@ -1,18 +1,24 @@
 const { NeuronNet, NeuronLayer } = require('../dist/index')
 
-// it looks like number: 0
+/**
+ *  Imagine looks like number: 0
+ */
 const number0 = '*****' 
               + '*---*'
               + '*---*'
               + '*****' 
 
-// it looks like number: 1
+/**
+ *  Imagine looks like number: 0
+ */
 const number1 = '*----' 
               + '*----'
               + '*----'
               + '*----'
 
-// it looks like number: 2
+/**
+ *  Imagine looks like number: 0
+ */
 const number2 = '*****' 
               + '--**-'
               + '-**--'
@@ -20,17 +26,17 @@ const number2 = '*****'
 
 
 function stringToArray(string){
-  // * => 1
-  // - => 0
+  // replace * >>> 1
+  // replace - >>> 0
   return string.trim().replace(/\*/g,1).replace(/-/g,0).split('')
 }
 
-const input = [stringToArray(number0), 
+const inputs = [stringToArray(number0), 
                stringToArray(number1), 
                stringToArray(number2)]
 
 
-const output = [[0,0],  
+const outputs = [[0,0],  
                 [0,1],  
                 [1,1]]  
 
@@ -40,21 +46,18 @@ function resultMap(result){
     return Math.round(item)
   }))
   switch(n){
-    case '[0,0]': // [1,0,0] represent number: 0
+    case '[0,0]': // [1,0,0] >>> number: 0
       return 0
-    case '[0,1]': // [0,1,0] represent number: 1
+    case '[0,1]': // [0,1,0] >>> number: 1
       return 1
-    case '[1,1]': // [0,0,1] represent number: 2
+    case '[1,1]': // [0,0,1] >>> number: 2
       return 2
     default:
       return null
   }
 }
 
-
-const iteration = 10000
-
-const neuronNet = new NeuronNet(input, output, iteration)
+const neuronNet = new NeuronNet(inputs, outputs, 10000)
 
 neuronNet
   .link(new NeuronLayer(5))
