@@ -30,10 +30,9 @@ const input = [stringToArray(number0),
                stringToArray(number2)]
 
 
-// [0,0,0] one vector hot to repsent output
-const output = [[1,0,0],  // [1,0,0] represent number: 0
-                [0,1,0],  // [0,1,0] represent number: 1
-                [0,0,1]]  // [0,0,1] represent number: 2
+const output = [[0,0],  
+                [0,1],  
+                [1,1]]  
 
 
 function resultMap(result){
@@ -41,11 +40,11 @@ function resultMap(result){
     return Math.round(item)
   }))
   switch(n){
-    case '[1,0,0]':
+    case '[0,0]': // [1,0,0] represent number: 0
       return 0
-    case '[0,1,0]':
+    case '[0,1]': // [0,1,0] represent number: 1
       return 1
-    case '[0,0,1]':
+    case '[1,1]': // [0,0,1] represent number: 2
       return 2
     default:
       return null
@@ -60,16 +59,15 @@ const neuronNet = new NeuronNet(input, output, iteration)
 neuronNet
   .link(new NeuronLayer(5))
   .link(new NeuronLayer(3))
-  .link(new NeuronLayer(3))
+  .link(new NeuronLayer(2))
 
 neuronNet.train()
 
-// test number:2
-const data = '*----' 
-           + '*----'
-           + '**---'
-           + '*----' 
+const data = '*****' 
+           + '**--*'
+           + '*---*'
+           + '*****' 
 
 
 const result = neuronNet.predict([stringToArray(data)])
-console.log('result:'+resultMap(result))
+console.log('result:'+resultMap(result))  //0
