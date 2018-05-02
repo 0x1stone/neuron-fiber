@@ -9,7 +9,7 @@ const number0 = '*****'
               + '*****' 
 
 /**
- *  Imagine looks like number: 0
+ *  Imagine looks like number: 1
  */
 const number1 = '*----' 
               + '*----'
@@ -17,7 +17,7 @@ const number1 = '*----'
               + '*----'
 
 /**
- *  Imagine looks like number: 0
+ *  Imagine looks like number: 2
  */
 const number2 = '*****' 
               + '--**-'

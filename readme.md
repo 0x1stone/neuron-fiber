@@ -34,7 +34,7 @@ const number0 = '*****'
               + '*****' 
 
 /**
- *  Image looks like number: 0
+ *  Image looks like number: 1
  */
 const number1 = '*----' 
               + '*----'
@@ -42,7 +42,7 @@ const number1 = '*----'
               + '*----'
 
 /**
- *  Image looks like number: 0
+ *  Image looks like number: 2
  */
 const number2 = '*****' 
               + '--**-'
