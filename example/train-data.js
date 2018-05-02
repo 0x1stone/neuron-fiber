@@ -9,27 +9,26 @@ const input = [[0, 0, 0], [0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 1]]
 /**
  * output
  */
-const output = [[0], [0], [0], [1], [1]]
+const output = [[0, 1], [0, 0], [0, 1], [1, 1], [1, 0]]
 
 /**
  * training times
  */
-const iteration = 3000
+const iteration = 10000
 
 /**
  * data is ready to be predicted
  */
-const data = [[0, 0, 1]]
+const data = [[0, 1, 1]]
 
 const neuronNet = new NeuronNet(input, output, iteration)
 
 neuronNet
   .link(new NeuronLayer(5))
   .link(new NeuronLayer(3))
-  .link(new NeuronLayer(1))
+  .link(new NeuronLayer(2))
 
 neuronNet.train()
 
-console.log(neuronNet.predict(data))
-
-console.log(neuronNet)
+console.log('result:')
+console.info(neuronNet.predict(data))

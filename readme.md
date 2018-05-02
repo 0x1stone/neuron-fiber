@@ -22,7 +22,7 @@ $ npm install neuron-fiber --save
 
 ## Usage
 
-```es6
+```js
 const { NeuronNet, NeuronLayer } = require('neuron-fiber')
 
 /**
@@ -72,7 +72,7 @@ const data = [[0, 0, 0, 0]]
 const neuronNet = new NeuronNet(input, output, iteration)
 
 /**
- * link to more neural layer 
+ * link to many neural layers
  * <params> the number of neurons
  */
 
