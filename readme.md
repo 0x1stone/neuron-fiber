@@ -104,24 +104,34 @@ console.log('result:'+resultMap(result))  //0
 ```
 ## API
 
+
 ### new neuronNet(inputs, outputs, iteration)
-*`inputs`:the data sample of inputs
-*`outputs`:the data sample of outputs
-*`iteration`:the number of training times
+* `inputs`:the data sample of inputs
+* `outputs`:the data sample of outputs
+* `iteration`:the number of training times
+
 
 #### .link(options)
+
 The options is a object obtain a layer of neural layer
 
+
 #### .train()
+
 Begin to train and modify the weight of each neural layer
 
+
 #### .predict(input)
+
 this will return results
-*`input`:the data should to be predicted
+* `input`:the data should to be predicted
+
 
 
 ### new NeuronLayer(neuronNumber)
-*`neuronNumber`:the amount of neurons in this neural layer
+
+* `neuronNumber`:the amount of neurons in this neural layer
+
 
 
 ## Algorithm
