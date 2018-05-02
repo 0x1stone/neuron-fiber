@@ -25,65 +25,79 @@ $ npm install neuron-fiber --save
 ```js
 const { NeuronNet, NeuronLayer } = require('neuron-fiber')
 
-/**
- * input
- * eg
- * [0, 0, 1, 0]  match output [0]
- * [0, 1, 1, 0] => [0]
- * [1, 0, 1, 0] => [1]
- * [1, 1, 1, 0] => [1]
- * ..
- * each case has one matched output 
- * we should know the realtion between input and output which call weight
- * use neuron.w will show you weight after training data every time 
- * 
- * predict is the function can use weight to generate a output accoding to your training data(input and ouput)
- * 
- * .
- */
-const input = [
-  [0, 0, 1, 0],
-  [0, 1, 1, 0],
-  [1, 0, 1, 0],
-  [1, 1, 1, 0]
-]
+// it looks like number: 0
+const number0 = '*****' 
+              + '*---*'
+              + '*---*'
+              + '*****' 
 
-/**
- * output
- */
-const output = [
-  [0],
-  [0],
-  [1],
-  [1]
-]
+// it looks like number: 1
+const number1 = '*----' 
+              + '*----'
+              + '*----'
+              + '*----'
 
-/**
- * training times
- */
-const iteration = 1000
+// it looks like number: 2
+const number2 = '*****' 
+              + '--**-'
+              + '-**--'
+              + '*****' 
 
 
-/**
- * data is ready to be predicted
- */
-const data = [[0, 0, 0, 0]]
+function stringToArray(string){
+  // * => 1
+  // - => 0
+  return string.trim().replace(/\*/g,1).replace(/-/g,0).split('')
+}
+
+const input = [stringToArray(number0), 
+               stringToArray(number1), 
+               stringToArray(number2)]
+
+
+// [0,0,0] one vector hot to repsent output
+const output = [[1,0,0],  // [1,0,0] represent number: 0
+                [0,1,0],  // [0,1,0] represent number: 1
+                [0,0,1]]  // [0,0,1] represent number: 2
+
+
+function resultMap(result){
+  const n = JSON.stringify(result[0].map(item=>{
+    return Math.round(item)
+  }))
+  switch(n){
+    case '[1,0,0]':
+      return 0
+    case '[0,1,0]':
+      return 1
+    case '[0,0,1]':
+      return 2
+    default:
+      return null
+  }
+}
+
+
+const iteration = 10000
 
 const neuronNet = new NeuronNet(input, output, iteration)
-
-/**
- * link to many neural layers
- * <params> the number of neurons
- */
 
 neuronNet
   .link(new NeuronLayer(5))
   .link(new NeuronLayer(3))
-  .link(new NeuronLayer(1))
+  .link(new NeuronLayer(3))
 
 neuronNet.train()
 
-const result = neuronNet.predict(data))
+// test number:2
+const data = '*----' 
+           + '*----'
+           + '**---'
+           + '*----' 
+
+
+const result = neuronNet.predict([stringToArray(data)])
+console.log('result:'+resultMap(result))
 
 
 ```

@@ -65,10 +65,10 @@ neuronNet
 neuronNet.train()
 
 // test number:2
-const data = '*****' 
-           + '--**-'
+const data = '*----' 
+           + '*----'
            + '**---'
-           + '*****' 
+           + '*----' 
 
 
 const result = neuronNet.predict([stringToArray(data)])
