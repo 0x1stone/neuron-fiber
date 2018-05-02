@@ -46,11 +46,11 @@ function resultMap(result){
     return Math.round(item)
   }))
   switch(n){
-    case '[0,0]': // [1,0,0] >>> number: 0
+    case '[0,0]': // [0,0] >>> number: 0
       return 0
-    case '[0,1]': // [0,1,0] >>> number: 1
+    case '[0,1]': // [0,1] >>> number: 1
       return 1
-    case '[1,1]': // [0,0,1] >>> number: 2
+    case '[1,1]': // [1,1] >>> number: 2
       return 2
     default:
       return null
