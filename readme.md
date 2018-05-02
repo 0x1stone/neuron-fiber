@@ -26,7 +26,7 @@ $ npm install neuron-fiber --save
 const { NeuronNet, NeuronLayer } = require('neuron-fiber')
 
 /**
- *  Imagine looks like number: 0
+ *  Image looks like number: 0
  */
 const number0 = '*****' 
               + '*---*'
@@ -34,7 +34,7 @@ const number0 = '*****'
               + '*****' 
 
 /**
- *  Imagine looks like number: 0
+ *  Image looks like number: 0
  */
 const number1 = '*----' 
               + '*----'
@@ -42,7 +42,7 @@ const number1 = '*----'
               + '*----'
 
 /**
- *  Imagine looks like number: 0
+ *  Image looks like number: 0
  */
 const number2 = '*****' 
               + '--**-'
