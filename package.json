@@ -4,6 +4,11 @@
   "description": "",
   "main": "dist/index.js",
   "email": "rainlst@live.com",
+  "keywords": [
+    "neural net",
+    "neural algorithm",
+    "sigmoid"
+  ],
   "scripts": {
     "test": "jasmine ./test/neuralSpec.js",
     "start": "node dist/index.js",
