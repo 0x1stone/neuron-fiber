@@ -23,14 +23,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         predict(input) {
             return this.sigmoid(numeric_1.default.dot(input, this.weight));
         }
+        derivSigmoid(x) {
+            return numeric_1.default.mul(x, numeric_1.default.sub(1, x));
+        }
         sigmoid(input) {
             return numeric_1.default.div(1, numeric_1.default.add(1, numeric_1.default.exp(numeric_1.default.neg(input))));
         }
-        train() {
+        forward() {
             if (!this.weight) {
                 this.initWeight();
             }
             this.output = this.predict(this.input);
+        }
+        backward() {
         }
     }
     exports.default = NeuralLayer;

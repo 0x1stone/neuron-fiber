@@ -9,7 +9,7 @@ export default class NeuronNet {
     predict(input: Array<any>): any;
     private backwardSpread();
     train(): void;
-    private trainLayer();
+    private forwardSpread();
     link(neuronLayer: INeuralLayer): any;
     private insertNeuralLayer(neuronLayer);
 }

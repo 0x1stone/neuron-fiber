@@ -27,7 +27,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         predict(input) {
             return this.neuronLayers.reduce((pre, current) => {
                 current.input = pre.length !== 0 ? pre : input;
-                current.train();
+                current.forward();
                 return current.output;
             }, []);
         }
@@ -50,11 +50,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         }
         train() {
             for (let i = 1; i <= this.iteration; i++) {
-                this.trainLayer();
+                this.forwardSpread();
                 this.backwardSpread();
             }
         }
-        trainLayer() {
+        forwardSpread() {
             this.predict(this.input);
         }
         link(neuronLayer) {

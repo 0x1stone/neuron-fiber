@@ -21,7 +21,7 @@ export default class NeuronNet {
   public predict(input: Array<any>) {
     return this.neuronLayers.reduce((pre: any, current: INeuralLayer): any => {
       current.input = pre.length !== 0 ? pre : input
-      current.train()
+      current.forward()
       return current.output
     }, [])
   }
@@ -58,12 +58,12 @@ export default class NeuronNet {
 
   public train(): void {
     for (let i = 1; i <= this.iteration; i++) {
-      this.trainLayer()
+      this.forwardSpread()
       this.backwardSpread()
     }
   }
 
-  private trainLayer(): void {
+  private forwardSpread(): void {
     this.predict(this.input)
   }
 

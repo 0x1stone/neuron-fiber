@@ -21,14 +21,22 @@ export default class NeuralLayer implements INeuralLayer {
     return this.sigmoid(numeric.dot(input, this.weight))
   }
 
+  private derivSigmoid(x: Array<any>) {
+    return numeric.mul(x, numeric.sub(1, x))
+  }
+
   private sigmoid(input: Array<any>) {
     return numeric.div(1, numeric.add(1, numeric.exp(numeric.neg(input))))
   }
 
-  public train() {
+  public forward() {
     if (!this.weight) {
       this.initWeight()
     }
     this.output = this.predict(this.input)
+  }
+  
+  public backward(){
+    
   }
 }
