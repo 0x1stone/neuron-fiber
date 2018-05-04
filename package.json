@@ -13,7 +13,7 @@
     "test": "jasmine ./test/neuralSpec.js",
     "start": "node dist/index.js",
     "build": "rimraf dist && tsc",
-    "dev": "npm run watch-node && npm run watch-ts",
+    "dev": "npm run watch-node & npm run watch-ts",
     "watch-node": "nodemon example/train-data.js",
     "watch-ts": "tsc -w"
   },

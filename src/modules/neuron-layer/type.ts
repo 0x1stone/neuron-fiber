@@ -3,5 +3,5 @@ export default interface INeuralLayer {
   output: Array<any>
   weight: Array<any>
   forward: () => void
-  backward: () => void
+  backward: () => Array<any>
 }

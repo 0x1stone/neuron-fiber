@@ -36,7 +36,7 @@ export default class NeuralLayer implements INeuralLayer {
     // this.output = this.predict(this.input)
   }
 
-  public backward() {
+  public backward():Array<any> {
     return this.derivSigmoid(this.output)
   }
 }
