@@ -17,11 +17,18 @@ export default class NeuronNet {
     return numeric.mul(x, numeric.sub(1, x))
   }
 
+  private sigmoid(input: Array<any>) {
+    return numeric.div(1, numeric.add(1, numeric.exp(numeric.neg(input))))
+  }
+
   // forward direction to spread
   public predict(input: Array<any>) {
     return this.neuronLayers.reduce((pre: any, current: INeuralLayer): any => {
       current.input = pre.length !== 0 ? pre : input
-      current.train()
+      if (!current.weight) {
+        current.initWeight()
+      }
+      current.output = this.sigmoid(numeric.dot(current.input, current.weight))
       return current.output
     }, [])
   }
@@ -58,12 +65,12 @@ export default class NeuronNet {
 
   public train(): void {
     for (let i = 1; i <= this.iteration; i++) {
-      this.trainLayer()
+      this.forwardSpread()
       this.backwardSpread()
     }
   }
 
-  private trainLayer(): void {
+  private forwardSpread(): void {
     this.predict(this.input)
   }
 

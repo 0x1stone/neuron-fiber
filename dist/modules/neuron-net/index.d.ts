@@ -6,10 +6,11 @@ export default class NeuronNet {
     readonly neuronLayers: Array<INeuralLayer>;
     constructor(input: Array<any>, output: Array<any>, iteration: number);
     private derivSigmoid(x);
+    private sigmoid(input);
     predict(input: Array<any>): any;
     private backwardSpread();
     train(): void;
-    private trainLayer();
+    private forwardSpread();
     link(neuronLayer: INeuralLayer): any;
     private insertNeuralLayer(neuronLayer);
 }

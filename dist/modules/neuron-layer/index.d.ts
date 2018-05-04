@@ -6,7 +6,4 @@ export default class NeuralLayer implements INeuralLayer {
     private amount;
     constructor(amount: number);
     initWeight(): void;
-    private predict(input);
-    private sigmoid(input);
-    train(): void;
 }

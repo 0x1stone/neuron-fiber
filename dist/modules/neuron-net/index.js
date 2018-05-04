@@ -23,11 +23,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         derivSigmoid(x) {
             return numeric_1.default.mul(x, numeric_1.default.sub(1, x));
         }
+        sigmoid(input) {
+            return numeric_1.default.div(1, numeric_1.default.add(1, numeric_1.default.exp(numeric_1.default.neg(input))));
+        }
         // forward direction to spread
         predict(input) {
             return this.neuronLayers.reduce((pre, current) => {
                 current.input = pre.length !== 0 ? pre : input;
-                current.train();
+                if (!current.weight) {
+                    current.initWeight();
+                }
+                current.output = this.sigmoid(numeric_1.default.dot(current.input, current.weight));
                 return current.output;
             }, []);
         }
@@ -50,11 +56,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         }
         train() {
             for (let i = 1; i <= this.iteration; i++) {
-                this.trainLayer();
+                this.forwardSpread();
                 this.backwardSpread();
             }
         }
-        trainLayer() {
+        forwardSpread() {
             this.predict(this.input);
         }
         link(neuronLayer) {

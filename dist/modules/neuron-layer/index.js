@@ -20,18 +20,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         initWeight() {
             this.weight = numeric_1.default.sub(numeric_1.default.mul(2, numeric_1.default.random([this.input[0].length, this.amount])), 1);
         }
-        predict(input) {
-            return this.sigmoid(numeric_1.default.dot(input, this.weight));
-        }
-        sigmoid(input) {
-            return numeric_1.default.div(1, numeric_1.default.add(1, numeric_1.default.exp(numeric_1.default.neg(input))));
-        }
-        train() {
-            if (!this.weight) {
-                this.initWeight();
-            }
-            this.output = this.predict(this.input);
-        }
     }
     exports.default = NeuralLayer;
 });
