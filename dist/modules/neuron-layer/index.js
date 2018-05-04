@@ -20,9 +20,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         initWeight() {
             this.weight = numeric_1.default.sub(numeric_1.default.mul(2, numeric_1.default.random([this.input[0].length, this.amount])), 1);
         }
-        predict(input) {
-            return this.sigmoid(numeric_1.default.dot(input, this.weight));
-        }
         derivSigmoid(x) {
             return numeric_1.default.mul(x, numeric_1.default.sub(1, x));
         }
@@ -33,7 +30,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             if (!this.weight) {
                 this.initWeight();
             }
-            this.output = this.predict(this.input);
+            const directOutput = numeric_1.default.dot(this.input, this.weight);
+            this.output = this.sigmoid(directOutput);
+            // this.output = this.predict(this.input)
         }
         backward() {
             return this.derivSigmoid(this.output);

@@ -17,10 +17,6 @@ export default class NeuralLayer implements INeuralLayer {
     )
   }
 
-  private predict(input: Array<any>) {
-    return this.sigmoid(numeric.dot(input, this.weight))
-  }
-
   private derivSigmoid(x: Array<any>) {
     return numeric.mul(x, numeric.sub(1, x))
   }
@@ -33,10 +29,12 @@ export default class NeuralLayer implements INeuralLayer {
     if (!this.weight) {
       this.initWeight()
     }
-    this.output = this.predict(this.input)
+    const directOutput = numeric.dot(this.input, this.weight)
+    this.output = this.sigmoid(directOutput)
+    // this.output = this.predict(this.input)
   }
-  
-  public backward(){
+
+  public backward() {
     return this.derivSigmoid(this.output)
   }
 }
