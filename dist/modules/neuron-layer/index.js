@@ -14,7 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     Object.defineProperty(exports, "__esModule", { value: true });
     const numeric_1 = __importDefault(require("numeric"));
     class NeuralLayer {
-        constructor(amount) {
+        constructor(amount, activationType = 'sigmoid' || 'softmax') {
+            this.activationType = activationType;
             this.amount = amount;
         }
         initWeight() {

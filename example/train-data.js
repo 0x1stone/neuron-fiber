@@ -24,7 +24,7 @@ const data = [[0, 1, 1]]
 const neuronNet = new NeuronNet(input, output, iteration)
 
 neuronNet
-  .link(new NeuronLayer(5))
+  .link(new NeuronLayer(5,'sigmoid'))
   .link(new NeuronLayer(3))
   .link(new NeuronLayer(1))
 

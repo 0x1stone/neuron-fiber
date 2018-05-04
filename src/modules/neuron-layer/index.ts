@@ -6,7 +6,9 @@ export default class NeuralLayer implements INeuralLayer {
   public output: Array<any>
   public weight: Array<any>
   private amount: number
-  constructor(amount: number) {
+  private activationType: string
+  constructor(amount: number, activationType: string = 'sigmoid' || 'softmax') {
+    this.activationType = activationType
     this.amount = amount
   }
 
