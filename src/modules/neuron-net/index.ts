@@ -44,7 +44,7 @@ export default class NeuronNet {
 
       deltaWeight = numeric.mul(
         errorOutput,
-        this.derivSigmoid(currentLayer.output)
+        currentLayer.backward()
       )
 
       currentLayer.weight = numeric.add(

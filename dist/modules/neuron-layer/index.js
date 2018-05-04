@@ -36,6 +36,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             this.output = this.predict(this.input);
         }
         backward() {
+            return this.derivSigmoid(this.output);
         }
     }
     exports.default = NeuralLayer;

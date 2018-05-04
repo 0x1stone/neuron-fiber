@@ -10,5 +10,5 @@ export default class NeuralLayer implements INeuralLayer {
     private derivSigmoid(x);
     private sigmoid(input);
     forward(): void;
-    backward(): void;
+    backward(): any;
 }

@@ -43,7 +43,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 else {
                     errorOutput = numeric_1.default.dot(deltaWeight, numeric_1.default.transpose(preLayer.weight));
                 }
-                deltaWeight = numeric_1.default.mul(errorOutput, this.derivSigmoid(currentLayer.output));
+                deltaWeight = numeric_1.default.mul(errorOutput, currentLayer.backward());
                 currentLayer.weight = numeric_1.default.add(currentLayer.weight, numeric_1.default.dot(numeric_1.default.transpose(currentLayer.input), deltaWeight));
                 preLayer = this.neuronLayers[i];
             }
