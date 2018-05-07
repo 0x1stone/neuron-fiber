@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     Object.defineProperty(exports, "__esModule", { value: true });
     const numeric_1 = __importDefault(require("numeric"));
     class NeuralLayer {
-        constructor(amount, activationType = 'sigmoid' || 'softmax') {
+        constructor(amount, activationType = 'sigmoid') {
             this.activationType = activationType;
             this.amount = amount;
         }
@@ -33,7 +33,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             }
             const directOutput = numeric_1.default.dot(this.input, this.weight);
             this.output = this.sigmoid(directOutput);
-            // this.output = this.predict(this.input)
         }
         backward() {
             return this.derivSigmoid(this.output);

@@ -6,8 +6,8 @@ export default class NeuralLayer implements INeuralLayer {
   public output: Array<any>
   public weight: Array<any>
   private amount: number
-  private activationType: string
-  constructor(amount: number, activationType: string = 'sigmoid' || 'softmax') {
+  private activationType:string
+  constructor(amount: number, activationType: 'sigmoid' | 'softmax' ='sigmoid') {
     this.activationType = activationType
     this.amount = amount
   }
@@ -33,7 +33,6 @@ export default class NeuralLayer implements INeuralLayer {
     }
     const directOutput = numeric.dot(this.input, this.weight)
     this.output = this.sigmoid(directOutput)
-    // this.output = this.predict(this.input)
   }
 
   public backward():Array<any> {
