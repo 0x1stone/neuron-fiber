@@ -3,10 +3,12 @@ export default class NeuralLayer implements INeuralLayer {
     input: Array<any>;
     output: Array<any>;
     weight: Array<any>;
+    private bias;
     private amount;
     private activationType;
     constructor(amount: number, activationType?: 'sigmoid' | 'softmax');
-    initWeight(): void;
+    private initWeight();
+    private initBias();
     private derivSigmoid(x);
     private sigmoid(input);
     forward(): void;

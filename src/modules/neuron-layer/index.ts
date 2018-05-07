@@ -5,6 +5,7 @@ export default class NeuralLayer implements INeuralLayer {
   public input: Array<any>
   public output: Array<any>
   public weight: Array<any>
+  private bias: number
   private amount: number
   private activationType:string
   constructor(amount: number, activationType: 'sigmoid' | 'softmax' ='sigmoid') {
@@ -12,11 +13,15 @@ export default class NeuralLayer implements INeuralLayer {
     this.amount = amount
   }
 
-  initWeight() {
+  private initWeight() {
     this.weight = numeric.sub(
       numeric.mul(2, numeric.random([this.input[0].length, this.amount])),
       1
     )
+  }
+
+  private initBias(){
+    this.bias=((Math.random() - 0.5) * 2)
   }
 
   private derivSigmoid(x: Array<any>) {
@@ -28,10 +33,11 @@ export default class NeuralLayer implements INeuralLayer {
   }
 
   public forward() {
-    if (!this.weight) {
+    if (!this.weight && !this.bias) {
       this.initWeight()
+      this.initBias()
     }
-    const directOutput = numeric.dot(this.input, this.weight)
+    const directOutput = numeric.add(numeric.dot(this.input, this.weight),this.bias)
     this.output = this.sigmoid(directOutput)
   }
 
