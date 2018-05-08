@@ -34,10 +34,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 this.isInit = true;
             }
             const directOutput = numeric_1.default.add(numeric_1.default.dot(this.input, this.weight), this.bias);
-            this.output = this.sigmoid(directOutput);
+            switch (this.activationType) {
+                case 'sigmoid':
+                    this.output = this.sigmoid(directOutput);
+                    break;
+                case 'softmax':
+                    null;
+                    break;
+                default:
+                    throw new Error('activation type not exist');
+            }
         }
         backward() {
-            return this.derivSigmoid(this.output);
+            switch (this.activationType) {
+                case 'sigmoid':
+                    return this.derivSigmoid(this.output);
+                default:
+                    throw new Error('activation type not exist');
+            }
         }
     }
     exports.default = NeuralLayer;

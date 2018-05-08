@@ -34,9 +34,9 @@ const inputs = [stringToArray(number0),
                stringToArray(number2)]
 
 
-const outputs = [[0,0],
-                 [0,1],  
-                 [1,1]]  
+const outputs = [[1,0,0],
+                 [0,1,0],  
+                 [0,0,1]]  
 
 
 function resultMap(result){
@@ -44,11 +44,11 @@ function resultMap(result){
     return Math.round(item)
   }))
   switch(n){
-    case '[0,0]': // [0,0] >>> number: 0
+    case '[1,0,0]': // [1,0,0] >>> number: 0
       return 0
-    case '[0,1]': // [0,1] >>> number: 1
+    case '[0,1,0]': // [0,1,0] >>> number: 1
       return 1
-    case '[1,1]': // [1,1] >>> number: 2
+    case '[0,0,1]': // [0,0,1] >>> number: 2
       return 2
     default:
       return null
@@ -60,7 +60,7 @@ const neuronNet = new NeuronNet(inputs, outputs, 10000)
 neuronNet
   .link(new NeuronLayer(5))
   .link(new NeuronLayer(3))
-  .link(new NeuronLayer(2))
+  .link(new NeuronLayer(3))
 
 neuronNet.train()
 

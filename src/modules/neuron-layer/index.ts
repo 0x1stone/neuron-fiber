@@ -10,7 +10,7 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
   private amount: number
   private activationType:string
   private isInit:boolean =false
-  
+
   constructor(amount: number, activationType: 'sigmoid' | 'softmax' ='sigmoid') {
     super()
     this.activationType = activationType
@@ -35,10 +35,26 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
       this.isInit = true
     }
     const directOutput = numeric.add(numeric.dot(this.input, this.weight),this.bias)
-    this.output = this.sigmoid(directOutput)
+    
+    switch (this.activationType){
+      case 'sigmoid':
+        this.output = this.sigmoid(directOutput)
+        break
+      case 'softmax':
+        null
+        break
+      default:
+        throw new Error('activation type not exist')    
+    }
+    
   }
 
   public backward():Array<any> {
-    return this.derivSigmoid(this.output)
+    switch (this.activationType){
+      case 'sigmoid':
+        return this.derivSigmoid(this.output)
+      default:
+        throw new Error('activation type not exist')
+    }   
   }
 }
