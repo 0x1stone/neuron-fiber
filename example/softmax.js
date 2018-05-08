@@ -1,34 +1,74 @@
-// const Perceptron = require('../dist/neuron-core').default
 const { NeuronNet, NeuronLayer } = require('../dist/index')
 
 /**
- * input
+ *  Imagine looks like number: 0
  */
-const input = [[0, 0, 0], [0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 1]]
+const number0 = '*****' 
+              + '*   *'
+              + '*   *'
+              + '*****' 
 
 /**
- * output
+ *  Imagine looks like number: 1
  */
-const output = [[0], [0], [1], [1], [0]]
+const number1 = '*    ' 
+              + '*    '
+              + '*    '
+              + '*    '
 
 /**
- * training times
+ *  Imagine looks like number: 2
  */
-const iteration = 10000
+const number2 = '*****' 
+              + '  ** '
+              + ' **  '
+              + '*****' 
 
-/**
- * data is ready to be predicted
- */
-const data = [[0, 1, 1]]
 
-const neuronNet = new NeuronNet(input, output, iteration)
+function stringToArray(string){
+  return string.replace(/\*/g,1).replace(/\s/g,0).split('')
+}
+
+const inputs = [stringToArray(number0), 
+               stringToArray(number1), 
+               stringToArray(number2)]
+
+
+const outputs = [[1,0,0],
+                 [0,1,0],  
+                 [0,0,1]]  
+
+
+function resultMap(result){
+  const n = JSON.stringify(result[0].map(item=>{
+    return Math.round(item)
+  }))
+  switch(n){
+    case '[1,0,0]': // [1,0,0] >>> number: 0
+      return 0
+    case '[0,1,0]': // [0,1,0] >>> number: 1
+      return 1
+    case '[0,0,1]': // [0,0,1] >>> number: 2
+      return 2
+    default:
+      return null
+  }
+}
+
+const neuronNet = new NeuronNet(inputs, outputs, 10000)
 
 neuronNet
   .link(new NeuronLayer(5,'sigmoid'))
-  .link(new NeuronLayer(3))
-  .link(new NeuronLayer(1))
+  .link(new NeuronLayer(3,'sigmoid'))
+  .link(new NeuronLayer(3,'sigmoid'))
 
 neuronNet.train()
 
-console.log('result:')
-console.info(neuronNet.predict(data))
+const data = '*****' 
+           + '**  *'
+           + '*   *'
+           + '*****' 
+
+
+const result = neuronNet.predict([stringToArray(data)])
+console.log('result:'+resultMap(result))  //0

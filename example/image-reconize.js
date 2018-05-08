@@ -58,9 +58,9 @@ function resultMap(result){
 const neuronNet = new NeuronNet(inputs, outputs, 10000)
 
 neuronNet
-  .link(new NeuronLayer(5))
-  .link(new NeuronLayer(3))
-  .link(new NeuronLayer(3))
+  .link(new NeuronLayer(5,'sigmoid'))
+  .link(new NeuronLayer(3,'sigmoid'))
+  .link(new NeuronLayer(3,'sigmoid'))
 
 neuronNet.train()
 
