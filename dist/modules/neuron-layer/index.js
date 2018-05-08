@@ -33,10 +33,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 this.initBias();
                 this.isInit = true;
             }
-            const directOutput = numeric_1.default.add(numeric_1.default.dot(this.input, this.weight), this.bias);
+            this.directOutput = numeric_1.default.add(numeric_1.default.dot(this.input, this.weight), this.bias);
             switch (this.activationType) {
                 case 'sigmoid':
-                    this.output = this.sigmoid(directOutput);
+                    this.output = this.sigmoid(this.directOutput);
                     break;
                 case 'softmax':
                     this.output = this.softmax(this.input);

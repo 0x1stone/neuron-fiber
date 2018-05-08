@@ -1,3 +1,4 @@
 import NeuronNet from './modules/neuron-net';
 import NeuronLayer from './modules/neuron-layer';
-export { NeuronNet, NeuronLayer };
+import Activator from './modules/activator';
+export { NeuronNet, NeuronLayer, Activator };

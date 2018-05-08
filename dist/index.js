@@ -7,7 +7,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./modules/neuron-net", "./modules/neuron-layer"], factory);
+        define(["require", "exports", "./modules/neuron-net", "./modules/neuron-layer", "./modules/activator"], factory);
     }
 })(function (require, exports) {
     "use strict";
@@ -16,4 +16,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     exports.NeuronNet = neuron_net_1.default;
     const neuron_layer_1 = __importDefault(require("./modules/neuron-layer"));
     exports.NeuronLayer = neuron_layer_1.default;
+    const activator_1 = __importDefault(require("./modules/activator"));
+    exports.Activator = activator_1.default;
 });

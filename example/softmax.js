@@ -1,5 +1,6 @@
 const { NeuronNet, NeuronLayer } = require('../dist/index')
 
+
 /**
  *  Imagine looks like number: 0
  */
@@ -63,6 +64,11 @@ neuronNet
   .link(new NeuronLayer(3,'sigmoid'))
 
 neuronNet.train()
+
+// set last layer output as directOutput
+const lastLayer = neuronNet.neuronLayers[neuronNet.neuronLayers.length-1]
+lastLayer.output = lastLayer.directOutput
+
 
 // softmax layer add after train
 neuronNet.link(new NeuronLayer(3,'softmax'))

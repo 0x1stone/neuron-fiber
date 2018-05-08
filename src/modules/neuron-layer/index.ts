@@ -8,8 +8,9 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
   public weight: Array<any>
   private bias: number
   private amount: number
-  private activationType:string
-  private isInit:boolean =false
+  private activationType: string
+  private isInit: boolean = false
+  public directOutput: Array<any>
 
   constructor(amount: number, activationType: 'sigmoid' | 'softmax' ='sigmoid') {
     super()
@@ -34,11 +35,11 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
       this.initBias()
       this.isInit = true
     }
-    const directOutput = numeric.add(numeric.dot(this.input, this.weight),this.bias)
+    this.directOutput = numeric.add(numeric.dot(this.input, this.weight),this.bias)
     
     switch (this.activationType){
       case 'sigmoid':
-        this.output = this.sigmoid(directOutput)
+        this.output = this.sigmoid(this.directOutput)
         break
       case 'softmax':
         this.output = this.softmax(this.input)

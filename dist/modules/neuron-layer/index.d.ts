@@ -8,6 +8,7 @@ export default class NeuralLayer extends Activator implements INeuralLayer {
     private amount;
     private activationType;
     private isInit;
+    directOutput: Array<any>;
     constructor(amount: number, activationType?: 'sigmoid' | 'softmax');
     private initWeight();
     private initBias();
