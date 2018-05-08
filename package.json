@@ -14,7 +14,7 @@
     "start": "node dist/index.js",
     "build": "rimraf dist && tsc",
     "dev": "npm run watch-node & npm run watch-ts",
-    "watch-node": "nodemon example/train-data.js",
+    "watch-node": "nodemon example/softmax.js",
     "watch-ts": "tsc -w"
   },
   "repository": {

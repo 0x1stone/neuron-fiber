@@ -64,6 +64,9 @@ neuronNet
 
 neuronNet.train()
 
+// softmax layer add after train
+neuronNet.link(new NeuronLayer(3,'softmax'))
+
 const data = '*****' 
            + '**  *'
            + '*   *'
@@ -71,4 +74,4 @@ const data = '*****'
 
 
 const result = neuronNet.predict([stringToArray(data)])
-console.log('result:'+resultMap(result))  //0
+console.log(result)  //0

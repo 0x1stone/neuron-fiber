@@ -14,11 +14,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     Object.defineProperty(exports, "__esModule", { value: true });
     const numeric_1 = __importDefault(require("numeric"));
     class Activator {
-        derivSigmoid(x) {
-            return numeric_1.default.mul(x, numeric_1.default.sub(1, x));
+        derivSigmoid(inputs) {
+            return numeric_1.default.mul(inputs, numeric_1.default.sub(1, inputs));
         }
-        sigmoid(input) {
-            return numeric_1.default.div(1, numeric_1.default.add(1, numeric_1.default.exp(numeric_1.default.neg(input))));
+        sigmoid(inputs) {
+            return numeric_1.default.div(1, numeric_1.default.add(1, numeric_1.default.exp(numeric_1.default.neg(inputs))));
+        }
+        softmax(inputs) {
+            console.log(inputs);
+            const sum = numeric_1.default.mapreduce('accum += xi', '0');
+            return sum(...inputs);
         }
     }
     exports.default = Activator;
