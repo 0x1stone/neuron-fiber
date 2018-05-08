@@ -7,14 +7,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "numeric"], factory);
+        define(["require", "exports", "numeric", "../activator"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const numeric_1 = __importDefault(require("numeric"));
-    class NeuralLayer {
+    const activator_1 = __importDefault(require("../activator"));
+    class NeuralLayer extends activator_1.default {
         constructor(amount, activationType = 'sigmoid') {
+            super();
+            this.isInit = false;
             this.activationType = activationType;
             this.amount = amount;
         }
@@ -24,16 +27,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
         initBias() {
             this.bias = ((Math.random() - 0.5) * 2);
         }
-        derivSigmoid(x) {
-            return numeric_1.default.mul(x, numeric_1.default.sub(1, x));
-        }
-        sigmoid(input) {
-            return numeric_1.default.div(1, numeric_1.default.add(1, numeric_1.default.exp(numeric_1.default.neg(input))));
-        }
         forward() {
-            if (!this.weight && !this.bias) {
+            if (!this.isInit) {
                 this.initWeight();
                 this.initBias();
+                this.isInit = true;
             }
             const directOutput = numeric_1.default.add(numeric_1.default.dot(this.input, this.weight), this.bias);
             this.output = this.sigmoid(directOutput);
