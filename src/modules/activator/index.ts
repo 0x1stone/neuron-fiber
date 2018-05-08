@@ -8,8 +8,14 @@ export default class Activator{
     return numeric.div(1, numeric.add(1, numeric.exp(numeric.neg(inputs))))
   }
   public softmax(inputs: Array<any>){
-    console.log(inputs)
+    const expInputs = numeric.exp(inputs)
     const sum = numeric.mapreduce('accum += xi','0')
-    return sum(...inputs)
+    const inputSums = expInputs.map((input:Array<any>)=>{
+      return sum(input)
+    })
+    return expInputs.map((input:Array<any>,index:number)=>{
+      const currenSum = inputSums[index]
+      return numeric.div(input,currenSum)
+    })
   }
 }

@@ -65,19 +65,30 @@ neuronNet
 
 neuronNet.train()
 
-// set last layer output as directOutput
-const lastLayer = neuronNet.neuronLayers[neuronNet.neuronLayers.length-1]
-lastLayer.output = lastLayer.directOutput
-
 
 // softmax layer add after train
-neuronNet.link(new NeuronLayer(3,'softmax'))
+// neuronNet.link(new NeuronLayer(3,'softmax'))
 
 const data = '*****' 
-           + '**  *'
-           + '*   *'
+           + '** * '
+           + ' ** *'
            + '*****' 
 
 
-const result = neuronNet.predict([stringToArray(data)])
-console.log(result)  //0
+const sigmoidLayerResult = neuronNet.predict([stringToArray(data)])
+
+
+const lastLayer = neuronNet.neuronLayers[neuronNet.neuronLayers.length-1]
+const softmaxInputs = lastLayer.directOutput
+
+
+// softmax layer
+const softmaxLayer = new NeuronLayer(3,'softmax')
+softmaxLayer.input = softmaxInputs
+softmaxLayer.forward()
+
+const result = softmaxLayer.output
+console.log(result)
+
+
+// console.log(sigmoidLayerResult)  // 0

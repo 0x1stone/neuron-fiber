@@ -21,9 +21,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             return numeric_1.default.div(1, numeric_1.default.add(1, numeric_1.default.exp(numeric_1.default.neg(inputs))));
         }
         softmax(inputs) {
-            console.log(inputs);
+            const expInputs = numeric_1.default.exp(inputs);
             const sum = numeric_1.default.mapreduce('accum += xi', '0');
-            return sum(...inputs);
+            const inputSums = expInputs.map((input) => {
+                return sum(input);
+            });
+            return expInputs.map((input, index) => {
+                const currenSum = inputSums[index];
+                return numeric_1.default.div(input, currenSum);
+            });
         }
     }
     exports.default = Activator;
