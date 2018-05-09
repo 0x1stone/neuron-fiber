@@ -56,7 +56,7 @@ function resultMap(result){
   }
 }
 
-const neuronNet = new NeuronNet(inputs, outputs, 10000)
+const neuronNet = new NeuronNet(inputs, outputs, 50000)
 
 neuronNet
   .link(new NeuronLayer(5,'sigmoid'))
@@ -70,8 +70,8 @@ neuronNet.train()
 // neuronNet.link(new NeuronLayer(3,'softmax'))
 
 const data = '*****' 
-           + '** * '
-           + ' ** *'
+           + '* ** '
+           + '* * *'
            + '*****' 
 
 
@@ -79,9 +79,9 @@ const sigmoidLayerResult = neuronNet.predict([stringToArray(data)])
 
 
 const lastLayer = neuronNet.neuronLayers[neuronNet.neuronLayers.length-1]
-const softmaxInputs = lastLayer.directOutput
+const softmaxInputs = lastLayer.output
 
-
+// console.log(lastLayer.output)
 // softmax layer
 const softmaxLayer = new NeuronLayer(3,'softmax')
 softmaxLayer.input = softmaxInputs
@@ -89,6 +89,3 @@ softmaxLayer.forward()
 
 const result = softmaxLayer.output
 console.log(result)
-
-
-// console.log(sigmoidLayerResult)  // 0
