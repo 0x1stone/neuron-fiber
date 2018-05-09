@@ -35,6 +35,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 return numeric_1.default.div(input, currenSum);
             });
         }
+        derivSoftmax(inputs) {
+            // return numeric.mul(inputs, numeric.sub(1, inputs))
+        }
     }
     exports.default = Activator;
 });

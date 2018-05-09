@@ -36,8 +36,7 @@ const inputs = [stringToArray(number0),
 
 
 const outputs = [[1,0,0],
-                 [0,1,0],  
-                 [0,0,1]]  
+                 [0,1,0]]  
 
 
 function resultMap(result){
@@ -56,7 +55,7 @@ function resultMap(result){
   }
 }
 
-const neuronNet = new NeuronNet(inputs, outputs, 100000)
+const neuronNet = new NeuronNet(inputs, outputs, 1)
 
 neuronNet
   .link(new NeuronLayer(5,'sigmoid'))

@@ -8,10 +8,11 @@ export default class Activator{
 
   public derivSigmoid(inputs: Array<any>) {
     return numeric.mul(inputs, numeric.sub(1, inputs))
+    
   }
  
   public softmax(inputs: Array<any>) {
-    
+
     // Compute the softmax of vector inputs in a numerically stable way
     const shiftInputs = inputs.map(input => { 
       return numeric.div(input,Math.max(...input))
@@ -27,5 +28,9 @@ export default class Activator{
       const currenSum = inputSums[index]
       return numeric.div(input,currenSum)
     })
+  }
+
+  public derivSoftmax(inputs: Array<any>){
+    // return numeric.mul(inputs, numeric.sub(1, inputs))
   }
 }
