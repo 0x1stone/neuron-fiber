@@ -1,4 +1,5 @@
 import numeric from 'numeric'
+import { deprecate } from 'util';
 
 export default class Activator{
 
@@ -29,8 +30,8 @@ export default class Activator{
       return numeric.div(input,currenSum)
     })
   }
-
+  
   public derivSoftmax(inputs: Array<any>){
-    return numeric.mul(inputs,numeric.sub([[1,0], [0,1], [0,1], [0,1], [0,1]],inputs))  // p(1-p)
+    return numeric.sub(inputs,[[1,0], [0,1], [0,1], [0,1], [0,1]])
   }
 }

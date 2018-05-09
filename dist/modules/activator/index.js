@@ -36,7 +36,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             });
         }
         derivSoftmax(inputs) {
-            return numeric_1.default.mul(inputs, numeric_1.default.sub([[1, 0], [0, 1], [0, 1], [0, 1], [0, 1]], inputs)); // p(1-p)
+            return numeric_1.default.sub(inputs, [[1, 0], [0, 1], [0, 1], [0, 1], [0, 1]]);
         }
     }
     exports.default = Activator;

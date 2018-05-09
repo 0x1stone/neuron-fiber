@@ -123,14 +123,14 @@ Begin to train and modify the weight of each neural layer
 #### .predict(input)
 
 this will return results
-* `input`:the data should to be predicted
+* `input`: the data should to be predicted
 
 
 
 ### new NeuronLayer(neuronNumber,activatorType)
 
-* `neuronNumber`:the amount of neurons in this neural layer
-* `activatorType`:'sigmoid' | 'softmax'
+* `neuronNumber`: the amount of neurons in this neural layer
+* `activatorType`: 'sigmoid'
 
 
 

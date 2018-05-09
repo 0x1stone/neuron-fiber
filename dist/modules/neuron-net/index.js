@@ -36,7 +36,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             const lastLayer = this.neuronLayers[this.neuronLayers.length - 1];
             for (let i = this.neuronLayers.length - 1; i >= 0; i = i - 1) {
                 currentLayer = this.neuronLayers[i];
-                // last layer
+                // last layer (sigmoid)
                 if (i === this.neuronLayers.length - 1) {
                     errorOutput = numeric_1.default.sub(this.output, lastLayer.output);
                 }

@@ -32,7 +32,7 @@ export default class NeuronNet {
     for (let i = this.neuronLayers.length - 1; i >= 0; i = i - 1) {
       currentLayer = this.neuronLayers[i]
 
-      // last layer
+      // last layer (sigmoid)
       if (i === this.neuronLayers.length - 1) {
         errorOutput = numeric.sub(this.output, lastLayer.output)
       } else {

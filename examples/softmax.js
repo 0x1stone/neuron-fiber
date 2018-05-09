@@ -13,12 +13,12 @@ const output = [[1,0], [0,1], [0,1], [0,1], [0,1]]
 /**
  * training times
  */
-const iteration = 2
+const iteration = 10000
 
 /**
  * data is ready to be predicted
  */
-const data = [[0, 0, 1]]
+const data = [[0, 0, 0]]
 
 const neuronNet = new NeuronNet(input, output, iteration)
 

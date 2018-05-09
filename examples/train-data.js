@@ -19,7 +19,7 @@ const iteration = 200000
 /**
  * data is ready to be predicted
  */
-const data = [[0, 0, 0]]
+const data = [[1, 0, 0]]
 
 const neuronNet = new NeuronNet(input, output, iteration)
 

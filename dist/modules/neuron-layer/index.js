@@ -40,8 +40,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                     this.output = this.sigmoid(this.directOutput);
                     break;
                 case 'softmax':
-                    // console.log(numeric.dot(this.input, this.weight))
-                    // console.log(this.softmax(this.directOutput))
                     this.output = this.softmax(this.directOutput);
                     break;
                 default:

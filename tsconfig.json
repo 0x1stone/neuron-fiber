@@ -9,6 +9,7 @@
     "sourceMap": false,
     "declaration": true,
     "outDir": "dist",
+    "experimentalDecorators":true,
     "baseUrl": "./src",
     "lib": ["es2017"],
     "paths": {
