@@ -36,13 +36,12 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
       this.isInit = true
     }
     this.directOutput = numeric.add(numeric.dot(this.input, this.weight),this.bias)
-    
     switch (this.activationType){
       case 'sigmoid':
         this.output = this.sigmoid(this.directOutput)
         break
       case 'softmax':
-        this.output = this.softmax(this.input)
+        this.output = this.softmax(this.directOutput)
         break
       default:
         throw new Error('forward activation type not exist')    
@@ -54,6 +53,8 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
     switch (this.activationType){
       case 'sigmoid':
         return this.derivSigmoid(this.output)
+      case 'softmax':
+        return this.derivSoftmax(this.output)
       default:
         throw new Error('backward activation type not exist')
     }   

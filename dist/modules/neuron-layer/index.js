@@ -39,7 +39,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                     this.output = this.sigmoid(this.directOutput);
                     break;
                 case 'softmax':
-                    this.output = this.softmax(this.input);
+                    this.output = this.softmax(this.directOutput);
                     break;
                 default:
                     throw new Error('forward activation type not exist');
@@ -49,6 +49,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
             switch (this.activationType) {
                 case 'sigmoid':
                     return this.derivSigmoid(this.output);
+                case 'softmax':
+                    return this.derivSoftmax(this.output);
                 default:
                     throw new Error('backward activation type not exist');
             }

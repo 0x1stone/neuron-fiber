@@ -31,6 +31,6 @@ export default class Activator{
   }
 
   public derivSoftmax(inputs: Array<any>){
-    // return numeric.mul(inputs, numeric.sub(1, inputs))
+    return numeric.mul(inputs,numeric.sub(1,inputs))  // p(1-p)
   }
 }

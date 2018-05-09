@@ -2,5 +2,5 @@ export default class Activator {
     sigmoid(inputs: Array<any>): any;
     derivSigmoid(inputs: Array<any>): any;
     softmax(inputs: Array<any>): any;
-    derivSoftmax(inputs: Array<any>): void;
+    derivSoftmax(inputs: Array<any>): any;
 }
