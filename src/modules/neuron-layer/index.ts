@@ -26,7 +26,8 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
   }
 
   private initBias(){
-    this.bias=((Math.random() - 0.5) * 2)
+    this.bias = numeric.mul(numeric.sub(numeric.random([this.input.length,this.amount]),0.5),1)
+    // this.bias=((Math.random() - 0.5) * 2)
   }
 
   public forward() {
@@ -41,6 +42,8 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
         this.output = this.sigmoid(this.directOutput)
         break
       case 'softmax':
+        // console.log(numeric.dot(this.input, this.weight))
+        // console.log(this.softmax(this.directOutput))
         this.output = this.softmax(this.directOutput)
         break
       default:
