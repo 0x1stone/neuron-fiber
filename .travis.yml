@@ -13,6 +13,7 @@ script:
 before_deploy:
 - npm version patch
 
+
 deploy:
   provider: npm
   email: rainlst@live.com
