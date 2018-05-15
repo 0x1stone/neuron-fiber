@@ -43,7 +43,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 else {
                     errorOutput = numeric_1.default.dot(deltaWeight, numeric_1.default.transpose(preLayer.weight));
                 }
-                deltaWeight = numeric_1.default.mul(errorOutput, currentLayer.backward());
+                switch (currentLayer.activationType) {
+                    case 'sigmoid':
+                        deltaWeight = numeric_1.default.mul(errorOutput, currentLayer.backward());
+                    case 'softmax':
+                        // console.log('softmax')
+                        deltaWeight = errorOutput;
+                }
                 currentLayer.weight = numeric_1.default.add(currentLayer.weight, numeric_1.default.dot(numeric_1.default.transpose(currentLayer.input), deltaWeight));
                 preLayer = this.neuronLayers[i];
             }

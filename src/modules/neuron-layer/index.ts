@@ -8,7 +8,7 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
   public weight: Array<any>
   private bias: number
   private amount: number
-  private activationType: string
+  public activationType: string
   private isInit: boolean = false
   public directOutput: Array<any>
 
@@ -38,6 +38,8 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
     }
     
     this.directOutput = numeric.add(numeric.dot(this.input, this.weight),this.bias)
+    // console.log('forward weight')
+    // console.log(this.weight)
     switch (this.activationType){
       case 'sigmoid':
         this.output = this.sigmoid(this.directOutput)

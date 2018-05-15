@@ -41,12 +41,18 @@ export default class NeuronNet {
           numeric.transpose(preLayer.weight)
         )
       }
-
-      deltaWeight = numeric.mul(
-        errorOutput,
-        currentLayer.backward()
-      )
-
+      
+      switch (currentLayer.activationType){
+        case 'sigmoid':
+          deltaWeight = numeric.mul(
+            errorOutput,
+            currentLayer.backward()
+          )
+        case 'softmax':
+          // console.log('softmax')
+          deltaWeight = errorOutput
+      }
+      
       currentLayer.weight = numeric.add(
         currentLayer.weight,
         numeric.dot(numeric.transpose(currentLayer.input), deltaWeight)

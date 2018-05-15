@@ -1,5 +1,4 @@
 import numeric from 'numeric'
-import { deprecate } from 'util';
 
 export default class Activator{
 
@@ -13,7 +12,6 @@ export default class Activator{
   }
  
   public softmax(inputs: Array<any>) {
-
     // Compute the softmax of vector inputs in a numerically stable way
     const shiftInputs = inputs.map(input => { 
       return numeric.div(input,Math.max(...input))

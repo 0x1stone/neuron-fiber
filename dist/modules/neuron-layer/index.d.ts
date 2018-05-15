@@ -6,7 +6,7 @@ export default class NeuralLayer extends Activator implements INeuralLayer {
     weight: Array<any>;
     private bias;
     private amount;
-    private activationType;
+    activationType: string;
     private isInit;
     directOutput: Array<any>;
     constructor(amount: number, activationType?: string);

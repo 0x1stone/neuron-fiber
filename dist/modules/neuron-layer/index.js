@@ -35,6 +35,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
                 this.isInit = true;
             }
             this.directOutput = numeric_1.default.add(numeric_1.default.dot(this.input, this.weight), this.bias);
+            // console.log('forward weight')
+            // console.log(this.weight)
             switch (this.activationType) {
                 case 'sigmoid':
                     this.output = this.sigmoid(this.directOutput);
