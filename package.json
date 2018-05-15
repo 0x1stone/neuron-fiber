@@ -10,7 +10,8 @@
     "sigmoid"
   ],
   "scripts": {
-    "test": "jasmine ./test/neuralSpec.js",
+    "test": "jest  --forceExit --coverage --verbose",
+    "watch-test": "npm run test -- --watchAll",
     "start": "node dist/index.js",
     "build": "rimraf dist && tsc",
     "dev": "npm run watch-node & npm run watch-ts",
@@ -31,11 +32,14 @@
     "numeric": "^1.2.6"
   },
   "devDependencies": {
-    "jasmine": "^2.8.0",
+    "@types/jest": "^22.2.3",
     "@types/node": "^9.4.6",
     "babel-polyfill": "^6.20.0",
+    "jasmine": "^2.8.0",
+    "jest": "^22.4.3",
     "nodemon": "^1.17.1",
     "rimraf": "^2.6.2",
+    "ts-jest": "^22.4.6",
     "typescript": "^2.7.2"
   }
 }
