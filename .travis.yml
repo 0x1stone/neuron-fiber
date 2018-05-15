@@ -21,7 +21,6 @@ deploy:
   api_key:
     secure: eB2iOaPoOKcf/YGTUFLL4F2F4NcFN0P5VTpuqs7NjusDcEyr61lGIeNu5mBcL1IBjc1gEU4Srfn1sn/bwyylGSrc6RSD+8HQbAHI1fpVFyHaJL/N9vkPl5QiqGfttUShw9tAGV29RfJE3q/IWdgSFzVkQ+qkrluOmCky5xf55W55aCQLpqmhmz10zLEjp1Z9CdFVXIAp6Zvp0twYwx5lL4QqKmKnlESJojWP6Tinph3+g788kCUDWVvqMqoENkqZu/4tiKWRvuP1Jf8tQe3a7DqtQWeEad9FrTr++p6RRuKIgdpJg4A0bewngPvht0nyQS3B8fm+BoOJKcWJqCOeq8nlqsIcBMO/UDRIxIaeX6B4cKIZ28cQ3VNh4yDUzv18XgqHW8tWGQ3lVT8a9aEJULqpEJLPTpp1UgObGpOxECKos9hq4+qZPZ5l16L7AArPIpQxn952ZFxurLCI2lugtVDll0N3KkY8/PA1+d/nDZ13OZSNodN2q/Kkrd5yiXnb6/C1o4aBSrxfJJ+SnsJ27imz43Upyc2G0JWiMJX9xlYXnOjT5bRd9BPGE313WWGFm6Zc75LarsOJjsvTCXPdCFJ22odt7R0eqpZjmPkiJl3cZW4/3fFpcsww80pu2wapr3qTkTTrjvaBdy1NmxByqByPWcrzcuFLFECEF5pY7Hw=
   on:
-    tags: true
     tag: next
     repo: rainlst/neuron-fiber
     branch: master
