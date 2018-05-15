@@ -16,7 +16,8 @@
     "build": "rimraf dist && tsc",
     "dev": "npm run watch-node & npm run watch-ts",
     "watch-node": "nodemon examples/softmax.js",
-    "watch-ts": "tsc -w"
+    "watch-ts": "tsc -w",
+    "travis-publish": "sh npm-publish.sh"
   },
   "repository": {
     "type": "git",
