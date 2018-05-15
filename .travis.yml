@@ -10,9 +10,6 @@ script:
 - npm run test
 - npm run build
 
-before_deploy:
-- npm version patch
-
 
 deploy:
   provider: npm
