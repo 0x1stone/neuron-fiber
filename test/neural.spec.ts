@@ -7,7 +7,7 @@ describe('neural', function() {
     var testdata = [[0, 0, 1, 0]]
   
     beforeEach(function() {
-      const neuronNet = new NeuronNet(x, y, 1000)
+      const neuronNet = new NeuronNet(x, y, 20)
       neuronNet
         .link(new NeuronLayer(5))
         .link(new NeuronLayer(3))

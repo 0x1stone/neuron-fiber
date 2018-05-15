@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1526374309552" clover="3.2.0">
-  <project timestamp="1526374309552" name="All files">
-    <metrics statements="73" coveredstatements="13" conditionals="15" coveredconditionals="0" methods="21" coveredmethods="0" elements="109" coveredelements="13" complexity="0" loc="73" ncloc="73" packages="4" files="4" classes="4">
+<coverage generated="1526379217209" clover="3.2.0">
+  <project timestamp="1526379217209" name="All files">
+    <metrics statements="73" coveredstatements="28" conditionals="15" coveredconditionals="3" methods="21" coveredmethods="5" elements="109" coveredelements="36" complexity="0" loc="73" ncloc="73" packages="4" files="4" classes="4">
       <package name="src">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="index.ts" path="/Users/liushitao/Desktop/Neural/src/index.ts">
@@ -15,12 +15,12 @@
         </file>
       </package>
       <package name="src.modules.activator">
-        <metrics statements="14" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
+        <metrics statements="14" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
         <file name="index.ts" path="/Users/liushitao/Desktop/Neural/src/modules/activator/index.ts">
-          <metrics statements="14" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="0"/>
+          <metrics statements="14" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
           <line num="1" count="1" type="stmt"/>
           <line num="3" count="1" type="stmt"/>
-          <line num="6" count="0" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
           <line num="10" count="0" type="stmt"/>
           <line num="16" count="0" type="stmt"/>
           <line num="17" count="0" type="stmt"/>
@@ -35,26 +35,26 @@
         </file>
       </package>
       <package name="src.modules.neuron-layer">
-        <metrics statements="24" coveredstatements="3" conditionals="9" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <metrics statements="24" coveredstatements="17" conditionals="9" coveredconditionals="3" methods="5" coveredmethods="4"/>
         <file name="index.ts" path="/Users/liushitao/Desktop/Neural/src/modules/neuron-layer/index.ts">
-          <metrics statements="24" coveredstatements="3" conditionals="9" coveredconditionals="0" methods="5" coveredmethods="0"/>
+          <metrics statements="24" coveredstatements="17" conditionals="9" coveredconditionals="3" methods="5" coveredmethods="4"/>
           <line num="1" count="1" type="stmt"/>
           <line num="2" count="1" type="stmt"/>
           <line num="5" count="1" type="stmt"/>
-          <line num="12" count="0" type="stmt"/>
-          <line num="16" count="0" type="stmt"/>
-          <line num="17" count="0" type="stmt"/>
-          <line num="18" count="0" type="stmt"/>
-          <line num="22" count="0" type="stmt"/>
-          <line num="29" count="0" type="stmt"/>
-          <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="36" count="0" type="stmt"/>
-          <line num="37" count="0" type="stmt"/>
-          <line num="40" count="0" type="stmt"/>
-          <line num="43" count="0" type="stmt"/>
-          <line num="45" count="0" type="stmt"/>
-          <line num="46" count="0" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="22" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="34" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="40" count="1" type="stmt"/>
+          <line num="43" count="1" type="stmt"/>
+          <line num="45" count="1" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
           <line num="48" count="0" type="stmt"/>
           <line num="49" count="0" type="stmt"/>
           <line num="51" count="0" type="stmt"/>

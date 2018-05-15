@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">12.5% </span>
+        <span class="strong">70.83% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/24</span>
+        <span class='fraction'>17/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/9</span>
+        <span class='fraction'>3/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>4/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">12.5% </span>
+        <span class="strong">70.83% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/24</span>
+        <span class='fraction'>17/24</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,41 +122,41 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -187,45 +187,45 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
   private bias: number
   private amount: number
   public activationType: string
-  private <span class="cstat-no" title="statement not covered" >isInit: boolean = false</span>
+  private isInit: boolean = false
   public directOutput: Array&lt;any&gt;
 &nbsp;
-<span class="fstat-no" title="function not covered" >  constructor(</span>amount: number, activationType = <span class="branch-0 cbranch-no" title="branch not covered" >'sigmoid')</span> {
-<span class="cstat-no" title="statement not covered" >    super()</span>
-<span class="cstat-no" title="statement not covered" >    this.activationType = activationType</span>
-<span class="cstat-no" title="statement not covered" >    this.amount = amount</span>
+  constructor(amount: number, activationType = 'sigmoid') {
+    super()
+    this.activationType = activationType
+    this.amount = amount
   }
 &nbsp;
-  private <span class="fstat-no" title="function not covered" >initWeight</span>() {
-<span class="cstat-no" title="statement not covered" >    this.weight = numeric.sub(</span>
+  private initWeight() {
+    this.weight = numeric.sub(
       numeric.mul(2, numeric.random([this.input[0].length, this.amount])),
       1
     )
   }
 &nbsp;
-  private <span class="fstat-no" title="function not covered" >initBias</span>(){
-<span class="cstat-no" title="statement not covered" >    this.bias = numeric.mul(numeric.sub(numeric.random([this.input.length,this.amount]),0.5),1)</span>
+  private initBias(){
+    this.bias = numeric.mul(numeric.sub(numeric.random([this.input.length,this.amount]),0.5),1)
     // this.bias=((Math.random() - 0.5) * 2)
   }
 &nbsp;
-  public <span class="fstat-no" title="function not covered" >forward</span>() {
-<span class="cstat-no" title="statement not covered" >    if (!this.isInit) {</span>
-<span class="cstat-no" title="statement not covered" >      this.initWeight()</span>
-<span class="cstat-no" title="statement not covered" >      this.initBias()</span>
-<span class="cstat-no" title="statement not covered" >      this.isInit = true</span>
+  public forward() {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!this.isInit) {
+      this.initWeight()
+      this.initBias()
+      this.isInit = true
     }
     
-<span class="cstat-no" title="statement not covered" >    this.directOutput = numeric.add(numeric.dot(this.input, this.weight),this.bias)</span>
+    this.directOutput = numeric.add(numeric.dot(this.input, this.weight),this.bias)
     // console.log('forward weight')
     // console.log(this.weight)
-<span class="cstat-no" title="statement not covered" >    switch (this.activationType){</span>
+    switch (this.activationType){
       case 'sigmoid':
-<span class="cstat-no" title="statement not covered" >        this.output = this.sigmoid(this.directOutput)</span>
-<span class="cstat-no" title="statement not covered" >        break</span>
-      case 'softmax':
+        this.output = this.sigmoid(this.directOutput)
+        break
+<span class="branch-1 cbranch-no" title="branch not covered" >      case 'softmax':</span>
 <span class="cstat-no" title="statement not covered" >        this.output = this.softmax(this.directOutput)</span>
 <span class="cstat-no" title="statement not covered" >        break</span>
-      default:
+<span class="branch-2 cbranch-no" title="branch not covered" >      default:</span>
 <span class="cstat-no" title="statement not covered" >        throw new Error('forward activation type not exist')    </span>
     }
   }
@@ -247,7 +247,7 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 15 2018 16:51:49 GMT+0800 (CST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue May 15 2018 18:13:37 GMT+0800 (CST)
 </div>
 </div>
 <script src="../../../prettify.js"></script>
