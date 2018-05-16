@@ -7,3 +7,4 @@ typings/
 sandbox/
 test/
 jest.config.js
+tsconfig.json
