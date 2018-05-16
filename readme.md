@@ -1,8 +1,8 @@
 # Neural net based in javascript (sigmoid)
 
 
-  [![NPM version][npm-image]][npm-url]
-  [![build status][travis-image]][travis-url]
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
 
 > "You want to explore a forest ,then a tree is a best place to do"
 
@@ -14,7 +14,7 @@ Follow these steps:
 2. [Usage](#usage)
 3. [API](#API)
 4. [Algorithm](#algorithm)
-5. **[Review Example Code](https://github.com/rainlst/neuron-fiber/tree/master/example)**
+5. **[Review Example Code](https://github.com/rainlst/neuron-fiber/tree/master/examples)**
 
 ## Install
 

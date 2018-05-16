@@ -13,10 +13,6 @@ export default class NeuronNet {
     this.iteration = iteration
   }
 
-  private derivSigmoid(x: Array<any>) {
-    return numeric.mul(x, numeric.sub(1, x))
-  }
-
   // forward direction to spread
   public predict(input: Array<any>) {
     return this.neuronLayers.reduce((pre: any, current: INeuralLayer): any => {
