@@ -151,5 +151,5 @@ this will return results
 
 [npm-image]: https://img.shields.io/npm/v/neuron-fiber.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/neuron-fiber
-[travis-image]: https://img.shields.io/travis/rainlst/neuron-fiber.png?branch=master&style=flat-square
+[travis-image]: https://img.shields.io/travis/rainlst/neuron-fiber.svg?branch=master&style=flat-square
 [travis-url]: https://travis-ci.org/rainlst/neuron-fiber
