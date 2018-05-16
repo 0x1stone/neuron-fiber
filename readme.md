@@ -1,9 +1,10 @@
 # neuron based in javascript
 
-[![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
+ [![NPM version][npm-image]][https://www.npmjs.com/package/neuron-fiber]
+ [![build status][travis-image]][http://secure.travis-ci.org/rainlst/neuron-fiber]
 
-> "You want to explore a forest ,then a tree is a best place to do" - stone
+
+> "You want to explore a forest ,then a tree is a best place to do"
 
 ## Getting Started
 
