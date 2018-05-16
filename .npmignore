@@ -6,3 +6,4 @@ node_modules/
 typings/
 sandbox/
 test/
+jest.config.js
