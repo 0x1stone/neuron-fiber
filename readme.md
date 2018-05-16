@@ -1,7 +1,8 @@
 # neuron based in javascript
 
- [![NPM version][npm-image]][https://www.npmjs.com/package/neuron-fiber]
- [![build status][travis-image]][http://secure.travis-ci.org/rainlst/neuron-fiber]
+
+  [![NPM version][npm-image]][npm-url]
+  [![build status][travis-image]][travis-url]
 
 
 > "You want to explore a forest ,then a tree is a best place to do"
@@ -145,3 +146,7 @@ this will return results
 
 [MIT](https://opensource.org/licenses/MIT). © 2017 lau stone
 
+[npm-image]: https://img.shields.io/npm/v/koa.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/koajs/koa/master.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/neuron-fiber
+[travis-url]: https://travis-ci.org/rainlst/neuron-fiber
