@@ -6,7 +6,7 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
   public input: Array<any>
   public output: Array<any>
   public weight: Array<any>
-  private bias: number
+  private bias: Array<any>
   private amount: number
   public activationType: string
   private isInit: boolean = false
@@ -26,8 +26,12 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
   }
 
   private initBias(){
-    this.bias = numeric.mul(numeric.sub(numeric.random([this.input.length,this.amount]),0.5),1)
-    // this.bias=((Math.random() - 0.5) * 2)
+    this.bias = numeric.mul(numeric.sub(numeric.random([1,this.amount]),0.5),1)
+  }
+
+  get formatBias():Array<any>{
+    const length= this.input.length
+    return numeric.rep([length],...this.bias)
   }
 
   public forward() {
@@ -36,10 +40,8 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
       this.initBias()
       this.isInit = true
     }
-    
-    this.directOutput = numeric.add(numeric.dot(this.input, this.weight),this.bias)
-    // console.log('forward weight')
-    // console.log(this.weight)
+    this.directOutput = numeric.add(numeric.dot(this.input, this.weight),this.formatBias)
+ 
     switch (this.activationType){
       case 'sigmoid':
         this.output = this.sigmoid(this.directOutput)
