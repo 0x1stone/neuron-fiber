@@ -7,7 +7,6 @@ describe('NeuronLayer', function() {
     const neuralLayer = new NeuronLayer(vector)
     neuralLayer.input = [[0, 0, 1, 0], [0, 1, 1, 0], [1, 0, 1, 0], [1, 1, 1, 0]]
     neuralLayer.forward()
-
     expect(neuralLayer.weight[0].length).toBe(vector)
     expect(neuralLayer.weight.length).toBe(neuralLayer.input.length)
   })
@@ -21,7 +20,6 @@ describe('NeuronLayer', function() {
     const deltaWeight = neuralLayer.backward()
     const flatternDeltaWeight = flattern(deltaWeight)
     const flatternDeltaOutput = flattern(output)
-
     flatternDeltaOutput.forEach((item, index) => {
       if (item === 1) {
         expect(flatternDeltaWeight[index]).toBeLessThan(0)

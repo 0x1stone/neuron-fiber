@@ -28,7 +28,7 @@ export default class NeuronNet {
     for (let i = this.neuronLayers.length - 1; i >= 0; i = i - 1) {
       currentLayer = this.neuronLayers[i]
 
-      // last layer (sigmoid)
+      // last layer
       if (i === this.neuronLayers.length - 1) {
         errorOutput = numeric.sub(this.output, lastLayer.output)
       } else {
@@ -37,23 +37,27 @@ export default class NeuronNet {
           numeric.transpose(preLayer.weight)
         )
       }
-      
+
       switch (currentLayer.activationType){
         case 'sigmoid':
           deltaWeight = numeric.mul(
             errorOutput,
             currentLayer.backward()
           )
+          break
         case 'softmax':
           // console.log('softmax')
           deltaWeight = errorOutput
+          break
+        default :
+          throw new Error('error type in neural net')
       }
-      
+
       currentLayer.weight = numeric.add(
         currentLayer.weight,
         numeric.dot(numeric.transpose(currentLayer.input), deltaWeight)
       )
-    
+
       preLayer = this.neuronLayers[i]
     }
   }
