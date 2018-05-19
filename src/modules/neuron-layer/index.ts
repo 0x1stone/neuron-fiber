@@ -26,7 +26,8 @@ export default class NeuralLayer extends Activator implements INeuralLayer{
   }
 
   private initBias(){
-    this.bias = numeric.mul(numeric.sub(numeric.random([1,this.amount]),0.5),1)
+    // range 1~2
+    this.bias = numeric.add(numeric.mul(numeric.random([1,this.amount]),1),1)
   }
 
   get formatBias():Array<any>{
