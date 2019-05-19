@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.33"></a>
+## [2.0.33](https://github.com/rainlst/neuron-fiber/compare/v2.0.32...v2.0.33) (2019-05-19)
+
+
+
 <a name="2.0.32"></a>
 ## [2.0.32](https://github.com/rainlst/neuron-fiber/compare/v2.0.31...v2.0.32) (2019-05-19)
 
