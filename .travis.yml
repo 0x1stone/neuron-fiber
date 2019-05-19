@@ -1,16 +1,11 @@
 language: node_js
-
 node_js:
 - 8
-
 before_install:
 - npm install -g npm
-
 script:
 - npm run test
 - npm run build
-
-
 deploy:
   provider: npm
   email: rainlst@live.com
@@ -18,7 +13,7 @@ deploy:
   script:
   - npm publish
   api_key:
-    secure: eB2iOaPoOKcf/YGTUFLL4F2F4NcFN0P5VTpuqs7NjusDcEyr61lGIeNu5mBcL1IBjc1gEU4Srfn1sn/bwyylGSrc6RSD+8HQbAHI1fpVFyHaJL/N9vkPl5QiqGfttUShw9tAGV29RfJE3q/IWdgSFzVkQ+qkrluOmCky5xf55W55aCQLpqmhmz10zLEjp1Z9CdFVXIAp6Zvp0twYwx5lL4QqKmKnlESJojWP6Tinph3+g788kCUDWVvqMqoENkqZu/4tiKWRvuP1Jf8tQe3a7DqtQWeEad9FrTr++p6RRuKIgdpJg4A0bewngPvht0nyQS3B8fm+BoOJKcWJqCOeq8nlqsIcBMO/UDRIxIaeX6B4cKIZ28cQ3VNh4yDUzv18XgqHW8tWGQ3lVT8a9aEJULqpEJLPTpp1UgObGpOxECKos9hq4+qZPZ5l16L7AArPIpQxn952ZFxurLCI2lugtVDll0N3KkY8/PA1+d/nDZ13OZSNodN2q/Kkrd5yiXnb6/C1o4aBSrxfJJ+SnsJ27imz43Upyc2G0JWiMJX9xlYXnOjT5bRd9BPGE313WWGFm6Zc75LarsOJjsvTCXPdCFJ22odt7R0eqpZjmPkiJl3cZW4/3fFpcsww80pu2wapr3qTkTTrjvaBdy1NmxByqByPWcrzcuFLFECEF5pY7Hw=
+    secure: uQb2q950QgfYJqC6kHCod/p0soW9B36rXzj4Rkjw9cCg//3p992R0LX76GvsBcChADtXaDQMjNftDFoAZqnySsvTvEGb9cIQ43vH/5epp2yG0rA4Ix1CEEh3dO4zLDAhd2hi8qNFYwlufhiTzcC0JscxJUc3UU1aWDvknGIZCiZqSH7JgH/yll6q0A4br8RS2aRFMgcnv8BpSMr+ZTH0z566oEi/eOW/ij3K8pxpFaKx9NULBXp678IXphCBCc9GASmuF+AFLq85dKnTqZK9G6HkPqiPsUbN7lX4veu0kJeX2DYOekwtz2736/7SmbPSTWmjAymutb9/Sj3nldezouYGpkwJJEO2qE/IQ5Wv22QaDOOycd8N1fYcEE+9U+cBjvjfUZFZvBgxtWTLkMTIO8jJj5D3U6UTMEMsom4VFuXTTv/oHx0pUGu/jXl6cEUzuTEXhkO2QqPoAyTmhVEt54LUztKGfjqGnyYRM6IqpY6mKIQzXUaL9lpbTdNk963T+612O4pJQ+yKicbSx1qToaeBb7ks4W4VGXbxIEpcn8bBIUrl02CuQGZ++eC0vt6ue8IRP7flIPLd4YGaf5DsUDs3rg8QwA1EXWrx9Ci4xq61WzneCfu18ON1MJh9EBrBW/VB0kFjqtwvik5KQfB4xezgnfAkKmekEPOss1Qx/mg=
   on:
     tag: next
     repo: rainlst/neuron-fiber
