@@ -29,6 +29,7 @@ function stringToArray(string){
   return string.replace(/\*/g,1).replace(/\s/g,0).split('')
 }
 
+// Flattern inputs
 const inputs = [stringToArray(number0), 
                stringToArray(number1), 
                stringToArray(number2)]
@@ -38,7 +39,7 @@ const outputs = [[1,0,0],
                  [0,1,0],  
                  [0,0,1]]  
 
-
+// Map outputs to one hot vector
 function resultMap(result){
   const n = JSON.stringify(result[0].map(item=>{
     return Math.round(item)
@@ -55,6 +56,7 @@ function resultMap(result){
   }
 }
 
+// Build neural net
 const neuronNet = new NeuronNet(inputs, outputs, 10000)
 
 neuronNet
@@ -62,13 +64,23 @@ neuronNet
   .link(new NeuronLayer(3,'sigmoid'))
   .link(new NeuronLayer(3,'sigmoid'))
 
+// Begin to train
 neuronNet.train()
+
+// Summary all params of neural layers
+neuronNet.summary()
 
 const data = '*****' 
            + '**  *'
            + '*   *'
            + '*****' 
 
+// Export neural net params
+neuronNet.export()
 
+
+// Predict data
 const result = neuronNet.predict([stringToArray(data)])
-console.log('result:'+resultMap(result))  //0
+
+// Result 0
+console.log('result:'+resultMap(result)) 

@@ -1,11 +1,20 @@
 import numeric from 'numeric'
-import INeuralLayer from '../neuron-layer/type'
+import fs from 'fs'
+import { INeuralLayer, INeuralLayerParams } from '../neuron-layer/type'
+import { TloadModelOpt, RequireAtLeastOne } from './type'
+import NeuralLayer from '../neuron-layer';
 
+/**
+ *
+ *
+ * @export
+ * @class NeuronNet
+ */
 export default class NeuronNet {
   readonly input: Array<any>
   public output: Array<any>
   private readonly iteration: number
-  public readonly neuronLayers: Array<INeuralLayer> = []
+  public neuronLayers: Array<INeuralLayer> = []
 
   constructor(input: Array<any>, output: Array<any>, iteration: number) {
     this.input = input
@@ -13,7 +22,14 @@ export default class NeuronNet {
     this.iteration = iteration
   }
 
-  // forward direction to spread
+
+  /**
+   * Forward direction to spread
+   *
+   * @param {Array<any>} input
+   * @returns
+   * @memberof NeuronNet
+   */
   public predict(input: Array<any>) {
     return this.neuronLayers.reduce((pre: any, current: INeuralLayer): any => {
       current.input = pre.length !== 0 ? pre : input
@@ -22,6 +38,12 @@ export default class NeuronNet {
     }, [])
   }
 
+  /**
+   *
+   *
+   * @private
+   * @memberof NeuronNet
+   */
   private backwardSpread(): void {
     let errorOutput, deltaWeight, currentLayer, preLayer
     const lastLayer = this.neuronLayers[this.neuronLayers.length - 1]
@@ -38,7 +60,7 @@ export default class NeuronNet {
         )
       }
 
-      switch (currentLayer.activationType){
+      switch (currentLayer.activationType) {
         case 'sigmoid':
           deltaWeight = numeric.mul(
             errorOutput,
@@ -49,7 +71,7 @@ export default class NeuronNet {
           // console.log('softmax')
           deltaWeight = errorOutput
           break
-        default :
+        default:
           throw new Error('error type in neural net')
       }
 
@@ -62,6 +84,11 @@ export default class NeuronNet {
     }
   }
 
+  /**
+   *
+   *
+   * @memberof NeuronNet
+   */
   public train(): void {
     for (let i = 1; i <= this.iteration; i++) {
       this.forwardSpread()
@@ -69,16 +96,127 @@ export default class NeuronNet {
     }
   }
 
+  /**
+   *
+   *
+   * @private
+   * @memberof NeuronNet
+   */
   private forwardSpread(): void {
     this.predict(this.input)
   }
 
+  /**
+   *
+   *
+   * @param {INeuralLayer} neuronLayer
+   * @returns {*}
+   * @memberof NeuronNet
+   */
   public link(neuronLayer: INeuralLayer): any {
     this.insertNeuralLayer(neuronLayer)
     return this
   }
 
+  /**
+   *
+   *
+   * @private
+   * @param {INeuralLayer} neuronLayer
+   * @memberof NeuronNet
+   */
   private insertNeuralLayer(neuronLayer: INeuralLayer) {
     this.neuronLayers.push(neuronLayer)
+  }
+
+  /**
+   *
+   *
+   * @memberof NeuronNet
+   */
+  public summary() {
+    console.dir(this.neuronLayersParams, { depth: null })
+  }
+
+  /**
+   *
+   *
+   * @readonly
+   * @memberof NeuronNet
+   */
+  get neuronLayersParams() {
+    return this.neuronLayers.map(item => {
+      return {
+        isInit: true,
+        activationType: item.activationType,
+        amount: item.amount,
+        weight: item.weight,
+        bias: item.bias,
+      }
+    })
+  }
+
+  /**
+   *
+   *
+   * @param {string} [name='neural-params' as string]
+   * @memberof NeuronNet
+   */
+  public export(name = 'neural-params' as string) {
+    const fileName = /\.json$/.test(name) ? name : `${name}.json`
+    const data = JSON.stringify(this.neuronLayersParams)
+    fs.writeFileSync(fileName, data)
+  }
+
+  /**
+   *
+   *
+   * @memberof NeuronNet
+   */
+  public loadModel(options: RequireAtLeastOne<TloadModelOpt, 'params' | 'path'>) {
+    this.neuronLayers = [] // Clear 
+    if (options.params) {
+      this.loadModelFromJson(options.params)
+    } else if (options.path) {
+      this.loadModelFromFile(options.path)
+    }
+  }
+
+  /**
+   *
+   *
+   * @private
+   * @memberof NeuronNet
+   */
+  private loadModelFromJson(params: INeuralLayerParams[]) {
+    try {
+      params.forEach(param => {
+        const neuralLayer = new NeuralLayer(param.amount, param.activationType || 'sigmoid')
+        neuralLayer.weight = param.weight
+        neuralLayer.bias = param.bias
+        this.link(neuralLayer)
+      })
+      console.log('[Info] Successfully load model')
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  /**
+   * Only support in nodejs
+   *
+   * @private
+   * @memberof NeuronNet
+   */
+  private loadModelFromFile(path: string) {
+    fs.readFile(path, (err, data) => {
+      try {
+        if (err) throw err;
+        const contents = JSON.parse(data.toString())
+        this.loadModelFromJson(JSON.parse(contents))
+      } catch (e) {
+        console.error('[Error] Failure to convert .json file')
+      }
+    })
   }
 }
