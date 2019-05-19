@@ -16,7 +16,7 @@ export default class NeuronNet {
   private readonly iteration: number
   public neuronLayers: Array<INeuralLayer> = []
 
-  constructor(input: Array<any>, output: Array<any>, iteration: number) {
+  constructor(input: Array<any> = [], output: Array<any> = [], iteration: number = 0) {
     this.input = input
     this.output = output
     this.iteration = iteration
@@ -194,6 +194,7 @@ export default class NeuronNet {
         const neuralLayer = new NeuralLayer(param.amount, param.activationType || 'sigmoid')
         neuralLayer.weight = param.weight
         neuralLayer.bias = param.bias
+        neuralLayer.isInit = true
         this.link(neuralLayer)
       })
       console.log('[Info] Successfully load model')
