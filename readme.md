@@ -174,7 +174,7 @@ This will return results
 * `input`: The data should to be predicted
 
 
-#### .expot(filePath)
+#### .export(filePath)
 * `filePath`: The model will export .json into file
 
 
