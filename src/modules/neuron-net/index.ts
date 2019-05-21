@@ -1,5 +1,4 @@
 import numeric from 'numeric'
-import fs from 'fs'
 import { INeuralLayer, INeuralLayerParams } from '../neuron-layer/type'
 import { TloadModelOpt, RequireAtLeastOne } from './type'
 import NeuralLayer from '../neuron-layer';
@@ -162,7 +161,8 @@ export default class NeuronNet {
    * @param {string} [name='neural-params' as string]
    * @memberof NeuronNet
    */
-  public export(name = 'neural-params' as string) {
+  public async export(name = 'neural-params' as string) {
+    const fs = await import('fs')
     const fileName = /\.json$/.test(name) ? name : `${name}.json`
     const data = JSON.stringify(this.neuronLayersParams)
     fs.writeFileSync(fileName, data)
@@ -209,7 +209,8 @@ export default class NeuronNet {
    * @private
    * @memberof NeuronNet
    */
-  private loadModelFromFile(path: string) {
+  private async loadModelFromFile(path: string) {
+    const fs = await import('fs')
     fs.readFile(path, (err, data) => {
       try {
         if (err) throw err;
