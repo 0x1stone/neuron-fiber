@@ -14,7 +14,7 @@ const output = [[0], [0], [0], [0.8], [0.9]]
 /**
  * training times
  */
-const iteration = 1000
+const iteration = 20000
 
 /**
  * data is ready to be predicted

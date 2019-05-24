@@ -25,9 +25,6 @@ $ npm install neuron-fiber --save
 ```js
 import { NeuronNet, NeuronLayer } from 'neuron-fiber'
 
-/**
- *  Imagine looks like number: 0
- */
 const number0 = '*****' 
               + '*   *'
               + '*   *'
@@ -67,6 +64,14 @@ const number4 = '     '
               + '    *'
               + '    *' 
 
+/**
+ *  Imagine looks like number: 7
+ */
+const number5 = ' **  ' 
+              + '  *  '
+              + '  *  '
+              + '     '
+
 
 function stringToArray(string){
   return string.replace(/\*/g,1).replace(/\s/g,0).split('')
@@ -77,13 +82,15 @@ const inputs = [stringToArray(number0),
                stringToArray(number1), 
                stringToArray(number2),
                stringToArray(number3),
-               stringToArray(number4)
+               stringToArray(number4),
+               stringToArray(number5)
               ]
 
 
 const outputs = [[1,0,0],
                  [0,1,0],  
                  [0,0,1],
+                 [0,1,1],
                  [0,1,1],
                  [0,1,1]]  
 
@@ -124,11 +131,11 @@ neuronNet.train()
 neuronNet.summary()
 
 const data1 = '*****' 
-            + '**  *'
+            + '*** *'
             + '*   *'
             + '*****' 
 
-const data2 = '     ' 
+const data2 = '     '
             + ' **  '
             + '  *  '
             + '  *  '
