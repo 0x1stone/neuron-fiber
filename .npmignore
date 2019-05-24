@@ -8,4 +8,4 @@ sandbox/
 test/
 jest.config.js
 tsconfig.json
-!dist
+!dest

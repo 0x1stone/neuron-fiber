@@ -1,4 +1,5 @@
-const { NeuronNet, NeuronLayer } = require('../dist/index')
+// const { NeuronNet, NeuronLayer } = require('../dist/index')
+import { NeuronNet, NeuronLayer } from '../dest/index'
 /**
  *  Imagine looks like number: 0
  */
@@ -106,6 +107,7 @@ neuronNet.train()
 
 // Summary all params of neural layers
 neuronNet.summary()
+
 
 const data1 = '*****' 
             + '*** *'

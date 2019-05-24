@@ -2,7 +2,8 @@
   "name": "neuron-fiber",
   "version": "2.0.39",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dest/index.common.js",
+  "module": "dest/index.esm.js",
   "email": "rainlst@live.com",
   "keywords": [
     "neural net",
@@ -12,6 +13,7 @@
   "scripts": {
     "test": "jest  --forceExit --coverage --verbose",
     "watch-test": "npm run test -- --watchAll",
+    "rollup": "rollup --config",
     "start": "node dist/index.js",
     "build": "rimraf dist && tsc --listEmittedFiles",
     "dev": "npm run watch-node & npm run watch-ts",
@@ -40,8 +42,11 @@
     "jest": "^22.4.3",
     "nodemon": "^1.17.1",
     "rimraf": "^2.6.2",
+    "rollup-plugin-dts": "^0.15.1",
+    "rollup-plugin-typescript": "^1.0.1",
     "standard-version": "^4.3.0",
     "ts-jest": "^22.4.6",
+    "tslib": "^1.9.3",
     "typescript": "^2.7.2"
   }
 }
