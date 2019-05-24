@@ -1,6 +1,6 @@
 {
   "name": "neuron-fiber",
-  "version": "2.0.39",
+  "version": "2.0.40",
   "description": "",
   "main": "dest/index.common.js",
   "module": "dest/index.esm.js",
