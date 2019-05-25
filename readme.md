@@ -22,7 +22,7 @@ $ npm install neuron-fiber --save
 
 ## Usage
 
-### Nodejs env
+### Nodejs environment
 
 ```js
 
@@ -30,7 +30,7 @@ import { NeuronNet, NeuronLayer } from 'neuron-fiber'
 
 ```
 
-## Browser env
+### Browser environment
 ```js
 
 import { NeuronNet, NeuronLayer } from 'neuron-fiber/dest/browser/index.esm.js'
