@@ -1,5 +1,5 @@
 // const Perceptron = require('../dist/neuron-core').default
-const { NeuronNet, NeuronLayer } = require('../dist/index')
+const { NeuronNet, NeuronLayer } = require('../dist/index.node')
 
 /**
  * input

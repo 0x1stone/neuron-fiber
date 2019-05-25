@@ -1,6 +1,5 @@
 import numeric from 'numeric'
 import { INeuralLayer, INeuralLayerParams } from '../neuron-layer/type'
-import { TloadModelOpt, RequireAtLeastOne } from './type'
 import NeuralLayer from '../neuron-layer';
 
 /**
@@ -155,40 +154,15 @@ export default class NeuronNet {
     })
   }
 
-  /**
-   *
-   *
-   * @param {string} [name='neural-params' as string]
-   * @memberof NeuronNet
-   */
-  public async export(name = 'neural-params' as string) {
-    const fs = await import('fs')
-    const fileName = /\.json$/.test(name) ? name : `${name}.json`
-    const data = JSON.stringify(this.neuronLayersParams)
-    fs.writeFileSync(fileName, data)
-  }
+  
 
   /**
    *
    *
+   * @public
    * @memberof NeuronNet
    */
-  public loadModel(options: RequireAtLeastOne<TloadModelOpt, 'params' | 'path'>) {
-    this.neuronLayers = [] // Clear 
-    if (options.params) {
-      this.loadModelFromJson(options.params)
-    } else if (options.path) {
-      this.loadModelFromFile(options.path)
-    }
-  }
-
-  /**
-   *
-   *
-   * @private
-   * @memberof NeuronNet
-   */
-  private loadModelFromJson(params: INeuralLayerParams[]) {
+  public loadModelFromJson(params: INeuralLayerParams[]) {
     try {
       params.forEach(param => {
         const neuralLayer = new NeuralLayer(param.amount, param.activationType || 'sigmoid')
@@ -201,24 +175,5 @@ export default class NeuronNet {
     } catch (e) {
       console.error(e)
     }
-  }
-
-  /**
-   * Only support in nodejs
-   *
-   * @private
-   * @memberof NeuronNet
-   */
-  private async loadModelFromFile(path: string) {
-    const fs = await import('fs')
-    fs.readFile(path, (err, data) => {
-      try {
-        if (err) throw err;
-        const contents = JSON.parse(data.toString())
-        this.loadModelFromJson(JSON.parse(contents))
-      } catch (e) {
-        console.error('[Error] Failure to convert .json file')
-      }
-    })
   }
 }

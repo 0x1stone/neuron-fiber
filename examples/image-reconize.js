@@ -1,5 +1,5 @@
-// const { NeuronNet, NeuronLayer } = require('../dist/index')
-import { NeuronNet, NeuronLayer } from '../dest/index'
+const { NeuronNet, NeuronLayer } = require('../dest/node/index.common')
+// import { NeuronNet, NeuronLayer } from '../dest/node/index'
 /**
  *  Imagine looks like number: 0
  */

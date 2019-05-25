@@ -3,3 +3,4 @@ coverage
 package-lock.json
 dist
 dest
+neural-params.json

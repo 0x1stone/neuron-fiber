@@ -1,4 +1,4 @@
-const { NeuronNet } = require('../dist/index')
+const { NeuronNet } = require('../dist/index.node')
 const model = require('./model/image-reconize-model.json')
 
 

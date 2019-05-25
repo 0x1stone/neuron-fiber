@@ -2,8 +2,8 @@
   "name": "neuron-fiber",
   "version": "2.0.40",
   "description": "",
-  "main": "dest/index.common.js",
-  "module": "dest/index.esm.js",
+  "main": "dest/node/index.common.js",
+  "module": "dest/node/index.esm.js",
   "email": "rainlst@live.com",
   "keywords": [
     "neural net",

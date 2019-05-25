@@ -22,8 +22,23 @@ $ npm install neuron-fiber --save
 
 ## Usage
 
+### Nodejs env
+
 ```js
+
 import { NeuronNet, NeuronLayer } from 'neuron-fiber'
+
+```
+
+## Browser env
+```js
+
+import { NeuronNet, NeuronLayer } from 'neuron-fiber/dest/browser/index.esm.js'
+
+```
+
+```js
+
 
 const number0 = '*****' 
               + '*   *'
@@ -192,7 +207,7 @@ The infomation about every layer print
 #### .loadModel(options)
 options <Object>
 * `params`: The model what using export to make up
-* `path`: The model file's path(.json,.text,*)
+* `path`(nodejs env only): The model file's path(.json,.text,*) 
 
 
 

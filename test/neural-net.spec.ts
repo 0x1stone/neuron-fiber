@@ -1,4 +1,4 @@
-import { NeuronNet, NeuronLayer } from '../src/index'
+import { NeuronNet, NeuronLayer } from '../src/index.node'
 describe('neural', function() {
   // const result = neuronNet.predict(testdata)
   it('shoulbe be a object when layer is sigmoid', function() {

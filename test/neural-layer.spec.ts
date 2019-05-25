@@ -1,4 +1,4 @@
-import { NeuronLayer } from '../src/index'
+import { NeuronLayer } from '../src/index.node'
 
 describe('NeuronLayer', function() {
   // const result = neuronNet.predict(testdata)
