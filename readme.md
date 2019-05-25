@@ -196,8 +196,9 @@ This will return results
 * `input`: The data should to be predicted
 
 
-#### .export(filePath)
-* `filePath`: The model will export .json into file
+#### .export(fileName)
+
+* `fileName`: (default 'neural-params.json') The model will export .json into project root in nodejs environment(In browser will download a json file)
 
 
 #### .summary()
@@ -207,7 +208,7 @@ The infomation about every layer print
 #### .loadModel(options)
 options <Object>
 * `params`: The model what using export to make up
-* `path`(nodejs env only): The model file's path(.json,.text,*) 
+* `path`(nodejs environment only): The model file's path(.json,.text,*) 
 
 
 

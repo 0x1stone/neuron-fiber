@@ -4,13 +4,13 @@ import { TloadModelOpt, RequireAtLeastOne } from './type'
 
 
 /**
- * The NeuronNet for browser
+ * The NeuronNet for nodejs
  *
  * @export
- * @class BrowserNeuronNet
+ * @class NodeNeuronNet
  * @extends {NeuronNet}
  */
-export default class BrowserNeuronNet extends NeuronNet {
+export default class NodeNeuronNet extends NeuronNet {
 
   /**
    *

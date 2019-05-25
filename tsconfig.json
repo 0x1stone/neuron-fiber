@@ -11,8 +11,9 @@
     "outDir": "dist",
     "experimentalDecorators":true,
     "baseUrl": "./src",
-    "lib": ["es2017"],
+    "lib": ["es2017","dom"],
     "paths": {
+      "@/*": ["./*"],
       "*": ["node_modules/*", "src/types/*"]
     }
   },

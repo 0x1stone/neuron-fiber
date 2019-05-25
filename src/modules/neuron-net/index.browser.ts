@@ -1,4 +1,5 @@
 import NeuronNet from './index'
+import { emitDownload } from '@/utils/emit-download'
 import { TloadModelOpt, RequireAtLeastOne } from './type'
 
 /**
@@ -31,8 +32,9 @@ export default class BrowserNeuronNet extends NeuronNet {
   * @memberof NeuronNet
   */
   public async export(name = 'neural-params' as string) {
-    console.error('[Error]: Only nodejs env support')
     super.summary()
+    const data = JSON.stringify(this.neuronLayersParams)
+    emitDownload(data, name)
   }
 
   /**
