@@ -167,6 +167,7 @@ const result2 = neuronNet.predict([stringToArray(data2)])
 // Result 0
 console.log('result1:'+resultMap(result1)) 
 
+// Result 7
 console.log('result2:'+resultMap(result2)) 
 
 

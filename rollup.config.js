@@ -33,10 +33,17 @@ export default [
       typescript()
     ]
   },
-  // Type defination 
+  // Node type defination 
   {
     input: 'src/index.node.ts',
-    output: [{ file: "dest/index.d.ts", format: "es" }],
+    output: [{ file: "dest/node/index.d.ts", format: "es" }],
+    plugins: [
+      dts()
+    ]
+  },
+  {
+    input: 'src/index.browser.ts',
+    output: [{ file: "dest/browser/index.d.ts", format: "es" }],
     plugins: [
       dts()
     ]
